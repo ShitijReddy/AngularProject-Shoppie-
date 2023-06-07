@@ -1,0 +1,77 @@
+.container {
+  padding: 15px 30px;
+}
+
+.card {
+  height: 60vh;
+  margin: 25px;
+  padding: 25px;
+}
+
+h4, h6 {
+  font-weight: 400;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.center img {
+  text-decoration: none;
+  color: inherit;
+  border: none;
+  outline: none;
+  height: 162px;
+  width: 250px;
+  margin: 20px 0px;
+}
+
+.btn {
+  margin-bottom: 50px;
+}
+
+.card-table {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: none;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+.center .btn {
+  font-size: 14px !important;
+  margin-top: 20px !important;
+  font-weight: 400;
+  padding: 12px 72px;
+  border-radius: 3px !important;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+.center {
+  text-align: center;
+}
+.center img {
+  /* Add styles for the image */
+  width: 200px; /* Adjust the width as needed */
+}
+.center .empty-cart-title {
+  /* Add styles for the empty cart title */
+  font-size: 24px; /* Adjust the font size as needed */
+  margin-bottom: 10px; /* Adjust the margin as needed */
+}
+.center .empty-cart-subtitle {
+  /* Add styles for the empty cart subtitle */
+  font-size: 16px; /* Adjust the font size as needed */
+  margin-bottom: 20px; /* Adjust the margin as needed */
+}

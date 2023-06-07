@@ -1,0 +1,19 @@
+<h2>Sign Up</h2>
+<form [formGroup]="signupForm" (ngSubmit)="onSignUp()">
+  <div>
+    <label for="username">Username</label>
+    <input type="text" id="username" formControlName="username">
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" id="password" formControlName="password">
+  </div>
+  <div>
+    <label for="role">Role</label>
+    <select id="role" formControlName="role">
+      <option value="customer">Customer</option>
+      <option value="retailer">Retailer</option>
+    </select>
+  </div>
+  <button type="submit" >Sign Up</button>
+</form>

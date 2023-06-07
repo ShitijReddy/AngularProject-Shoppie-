@@ -1,0 +1,224 @@
+
+.card-top {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: .25rem;
+}
+.item {
+    margin: 0px 15px;
+    text-align: center;
+}
+
+.item img{
+ width: 64px;
+}
+
+.item a:hover {
+    color: blue;
+}
+
+.card {
+    padding: 20px;
+    margin: 45px;
+}
+
+.card img { 
+    width: 250px;
+    height: 250px;
+    margin-bottom: 15px;
+    transition: 0.3s ease-in-out;
+}
+
+.card img:hover {
+     transition: 0.3s ease-in-out;
+     transform: scale(1.1);
+}
+
+.mat-mdc-form-field + .mat-mdc-form-field {
+    margin-left: 8px;
+  }
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+    margin: 15px 30px;
+  }
+  
+  .search-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .search-button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .search-button:hover {
+    background-color: #0056b3;
+  }
+  
+  
+
+
+
+// .example-card {
+//     width: 300px;
+//     margin-bottom: 20px;
+//   }
+  
+//   .mat-card-header {
+//     background-color: #333;
+//     color: #fff;
+//   }
+  
+//   .mat-card-title,
+//   .mat-card-subtitle {
+//     color: #fff;
+//   }
+  
+//   .mat-card-content {
+//     padding: 16px;
+//   }
+
+// .example-card {
+//     margin-bottom: 20px;
+//   }
+  
+//   .row {
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: space-around;
+//   }
+  
+//   .col-md-4 {
+//     flex: 0 0 33.33%;
+//     max-width: 33.33%;
+//     padding: 10px;
+//   }
+  
+//   .item-card {
+//     max-width: 100%;
+//   }
+  
+//   .mat-card-header {
+//     background-color: #333;
+//     color: #fff;
+//     padding: 10px;
+//   }
+  
+//   .mat-card-title,
+//   .mat-card-subtitle {
+//     color: #fff;
+//     margin-bottom: 10px;
+//   }
+  
+//   .mat-card-image {
+//     height: 200px;
+//     object-fit: cover;
+//   }
+  
+//   .mat-card-content {
+//     padding: 16px;
+//   }
+  
+//   .btn-primary {
+//     background-color: #333;
+//     color: #fff;
+//     margin-top: 10px;
+//   }
+  
+//   .btn-primary:hover {
+//     background-color: #555;
+//   }
+  
+//   img {
+//     width: 100%;
+//     height: auto;
+//   }
+  
+// .example-card {
+//     margin-bottom: 20px;
+//   }
+  
+//   .row {
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: space-between; /* Add even spacing between cards */
+//   }
+  
+//   .col-md-4 {
+//     flex: 0 0 30%; /* Adjust the width of each card column */
+//     max-width: 30%;
+//     margin-bottom: 20px; /* Add spacing between cards */
+//   }
+  
+//   .item-card {
+//     max-width: 100%;
+//     height: 100%; /* Reduce the card size */
+//     box-sizing: border-box; /* Ensure padding and border are included in the total width */
+//     border-radius: 8px; /* Add rounded corners to the card */
+//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
+//   }
+  
+//   .mat-card-header {
+//     background-color: #333;
+//     color: #fff;
+//     padding: 10px;
+//     border-top-left-radius: 8px; /* Round the top left corner of the header */
+//     border-top-right-radius: 8px; /* Round the top right corner of the header */
+//   }
+  
+//   .mat-card-title,
+//   .mat-card-subtitle {
+//     color: #fff;
+//     margin-bottom: 10px;
+//   }
+  
+//   .mat-card-image {
+//     height: 150px; /* Adjust the height of the card image */
+//     object-fit: cover;
+//     border-top-left-radius: 8px; /* Round the top left corner of the image */
+//     border-top-right-radius: 8px; /* Round the top right corner of the image */
+//   }
+  
+//   .mat-card-content {
+//     padding: 16px;
+//   }
+  
+//   .btn-primary {
+//     background-color: #333;
+//     color: #fff;
+//     margin-top: 10px;
+//   }
+  
+//   .btn-primary:hover {
+//     background-color: #555;
+//   }
+  
+// .mat-card:hover {
+//      transition: 0.3s ease-in-out;
+//      transform: scale(1.1);
+//   }
+// //   img {
+// //     width: 100%;
+// //     height: 100%;
+// //     object-fit: cover;
+// //     border-top-left-radius: 8px; /* Round the top left corner of the image */
+// //     border-top-right-radius: 8px; /* Round the top right corner of the image */
+// //   }
+  
