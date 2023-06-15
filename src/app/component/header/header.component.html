@@ -1,15 +1,16 @@
-<header>
-    <mat-toolbar class="navbar bg-primary shadow-sm">
+<header class="fixed-header">
+    <div class="navbar">
         <div  class="navbar-brand align-item-center d-flex">
-            <i style="font-size: 40px;" class="fas fa-shipping-fast">&nbsp;
+            <i (click)="goToPage('')" style=" cursor: pointer; font-size: 35px; color: white;  margin-left: 75px; margin-top: 2px;" class="fa-solid fa-house" ></i>
+            <i style="font-size: 40px; margin-left: 35px; color: white;" class="fas fa-shipping-fast">&nbsp;
                 
             </i>
-            <div (click)="goToPage('/products')">
-                <strong  style="font-size: 30px;">Shoppie</strong>
+            <div style="margin-top: 10px; color: white; cursor: pointer;" (click)="goToPage('/products')">
+                <strong  style="font-size: 30px; ">Shoppie</strong>
             </div>
             
             <!-- Search Form -->
-            <form routerLink="" style="margin-left: 20px;" [formGroup]="searchProductForm" (ngSubmit)="searchProduct(searchBar.value)">
+            <form routerLink="" style="margin-left: 20px; align-items: center; " [formGroup]="searchProductForm" (ngSubmit)="searchProduct(searchBar.value)">
                 <input (change)="revertHideAutoComplete()" #searchBar formControlName="searchBar" type="text" [formControl]="searchControl" class="form-control" placeholder="Search products...">
             </form>
             
@@ -21,20 +22,27 @@
         
         
         <!-- Button trigger modal -->
-        <button type="button" *ngIf="!getIsCustomer()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Add the Product
-        </button>
-        
-        
-        <button routerLink="signup" *ngIf="!isLoggedIn" class="btn btn-secondary">Sign Up</button>
-        <button routerLink="login" *ngIf="!isLoggedIn" class="btn btn-secondary">Login</button>
-        <button *ngIf="isLoggedIn" class="btn btn-secondary" (click)="logout()">Logout</button>
+        <div>
+            <button type="button" *ngIf="!getIsCustomer()" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Add New Product
+            </button>
+            <button routerLink="my-products" *ngIf="!getIsCustomer()" class="btn">Customer Orders</button>
+        </div>
 
         <!-- My Orders Button -->
-        <button routerLink="my-orders" *ngIf="getIsCustomer()" class="btn btn-primary">My Orders</button>
+        <button routerLink="my-orders" *ngIf="getIsCustomer()" class="btn ">My Orders</button>
 
-        <button routerLink="my-products" *ngIf="!getIsCustomer()" class="btn btn-primary">Customer Orders</button>
+        
 
+        <!-- Routing to Cart Page -->
+        <button style="margin-right: 30px;" *ngIf="getIsCustomer()" routerLink ="cart" class="btn">
+            <i style="font-size: 30px;" class="fa-solid fa-cart-shopping"></i>
+            <!-- <i  style="font-size: 30px; color:  #000; " class="fas fa-cart-plus"></i> -->
+            <div style=" font-size: 10px; background: rgb(4, 75, 228); top: -40px;" [matBadge]="totalItem" class="badgebg-danger"></div>
+        </button>
+        <button routerLink="signup" *ngIf="!isLoggedIn" class="btn ">Sign Up</button>
+        <button routerLink="login" *ngIf="!isLoggedIn" style="margin-right: 20px;"  class="btn ">Login</button>
+        <button *ngIf="isLoggedIn" class="btn " style="margin-right: 20px;" (click)="logout()">Logout</button>
         <!-- Header HTML code -->
 
         
@@ -92,12 +100,8 @@
         </div>
 
 
-        <!-- Routing to Cart Page -->
-        <button *ngIf="getIsCustomer()" routerLink ="cart" class="btn btn-primary">
-            <i  style="font-size: 30px;" class="fas fa-cart-plus"></i>
-            <div style="font-size: 10px; background: rgb(4, 75, 228);" [matBadge]="totalItem" class="badgebg-danger"></div>
-        </button>
-    </mat-toolbar>
+        
+    </div>
 </header>
 <div>
     <ul [hidden]="hideAutoComplete" class="suggestions">

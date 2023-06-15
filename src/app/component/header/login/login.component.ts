@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
     }
   }
   validateUser(username: string, password: string, allUsers:any): boolean {
+    console.log(`No of users:${allUsers.length}`)
     for (const user of allUsers){
       if(user.username === username && user.password === password){
         this.isLoggedIn = true;

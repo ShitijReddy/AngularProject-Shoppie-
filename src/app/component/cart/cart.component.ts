@@ -10,7 +10,6 @@ import { OrderService } from 'src/app/service/order-service.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit{
-  
   public products : any = [];
   public grandTotal : number = 0;
 
@@ -22,6 +21,7 @@ export class CartComponent implements OnInit{
     .subscribe(res=> {
       this.products = res;
       this.grandTotal = this.cartService.getTotalPrice();
+      // this.grandTotal = this.calcGrandTotal();
     })
   }
 
@@ -70,10 +70,39 @@ export class CartComponent implements OnInit{
     this.orderService.addOrderedProduct(this.products);
     this.products.length = 0;
     
-    alert(`Total Price: ${this.grandTotal}.
-    You have checked out successfully`);
     this.cartService.removeAllCart();
   }
+  
+  q: { [itemId: string]: number } = {};
+
+  updateQuantity(item: any, change: number) {
+    if (this.q[item.id]) {
+      this.q[item.id] += change;
+    } else {
+      this.q[item.id] = 1;
+    }
+    
+    item.quant = this.q[item.id];
+
+    if(item.quant > 1){
+      item.discount = 0.1;
+      item.total = item.price*item.quant;
+      item.total -= item.total*item.discount;
+    }
+    else {
+      item.discount = 0;
+      item.total = item.price;
+    }
+  }
+  
+
+
+  setBaseQuant(item: any) {
+    item.quant = 1;
+  }
+
+  
+  
 
 }
  

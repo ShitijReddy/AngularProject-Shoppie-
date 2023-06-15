@@ -1,25 +1,20 @@
 
-.form-control {
-  margin-top: 10px;
-  border-radius: 3px;
-  width: 470px;
-  margin-left: 40px;
-}
+
 
 .search-icon {
   position: absolute;
   z-index: 10;
   right: 50%;
   color: blue;
-  margin-top: 20px;
+  margin-top: 10px;
   
 }
 
 
 .form-control {
-  margin-top: 10px;
+  margin-top: 2px;
   border-radius: 3px;
-  width: 470px;
+  width: 390px;
   margin-left: 0px;
 }
 
@@ -44,3 +39,64 @@
 .suggestions li:hover {
   background-color: #f1f1f1;
 }
+
+button {
+  color: white;
+}
+
+// .badgebg-danger {
+//   width: 5px;
+//   height: 10px;
+//   right: -20px;
+//   top: -10px;
+// }
+
+.mat-badge-medium.mat-badge-overlap.mat-badge-after .mat-badge-content {
+  right: -11px;
+  margin-top: 8px;
+  // top: 0.11px;
+  // top: 2px;
+  // height: 10px;
+}
+.mat-badge-content {
+  color: #fff;
+  background: #e75319;
+  // background-size: 1%;
+  width: 18px;
+  height: 18px;
+  // top: -10px;
+}
+
+.fixed-header {
+  // position: absolute;
+  // display: flex;
+  // flex-direction: row;
+  // align-items: center;
+  // justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+
+  // background-color: rgba(0, 0, 0, 0.842);
+  // background-color: rgb(180, 135, 135);
+  // background-color: white;
+  // background-color: rgb(100, 69, 69);
+  background-color: rgba(0, 0, 0, 0.952);
+}
+
+.btn:hover {
+  color: white;
+  // border-bottom: 1px solid white;
+  border-radius: 0%;
+  // border-bottom: 1px solid white;
+  // transform: scale(1.1) ;
+  font-weight: bold;
+  // background: #F5F5F5;
+}
+
+// .navbar-brand {
+//   background-color: aliceblue;
+// }
+

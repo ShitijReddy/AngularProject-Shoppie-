@@ -1,4 +1,13 @@
-<strong><p>Rating: {{ calculateAverageRating() }} </p></strong>
+<strong>
+  <p>Rating:</p>
+  <div class="star-rating" [ngClass]="{'empty-star-rating': calculateAverageRating() < 1}"></div>
+  <div class="star-rating" [ngClass]="{'empty-star-rating': calculateAverageRating() < 2}"></div>
+  <div class="star-rating" [ngClass]="{'empty-star-rating': calculateAverageRating() < 3}"></div>
+  <div class="star-rating" [ngClass]="{'empty-star-rating': calculateAverageRating() < 4}"></div>
+  <div class="star-rating" [ngClass]="{'empty-star-rating': calculateAverageRating() < 5}"></div>
+  <span style="font-size: 1.2rem;"> ({{  calculateAverageRating() }})</span>
+</strong>
+
 <strong><p>Reviews: {{ totalReviews() }}</p></strong>
 
 <button class="btn btn-secondary" *ngIf="!showReviews" (click)="showReviews = true">Display Reviews</button>

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .btn {
   margin: 12px 5px;
 }
@@ -76,4 +77,18 @@
 
 p {
   margin-top: 10px;
+}
+
+.star-rating {
+  display: inline-block;
+  font-size: 1.3rem;
+  color: #ffd700;
+}
+
+.star-rating::before {
+  content: "★";
+}
+
+.empty-star-rating {
+  color: #ccc;
 }

@@ -5,9 +5,9 @@
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background: #fff;
+    background: white;
     background-clip: border-box;
-    border: 1px solid rgba(0,0,0,0.2);
+    // border-bottom: 1px solid rgba(0,0,0,0.2);
     border-radius: .25rem;
 }
 .item {
@@ -24,8 +24,23 @@
 }
 
 .card {
+    position: relative;
     padding: 20px;
     margin: 45px;
+    border: none;
+    .product-image {
+        width: 100%;
+        height: 300px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: background-image 0.3s ease-in-out;
+        margin-bottom: 15px;
+      }
+    
+    //   .product-image:hover {
+    //     background-image: url(<hover-image-url>);
+    //   }
 }
 
 .card img { 
@@ -40,28 +55,30 @@
      transform: scale(1.1);
 }
 
-.mat-mdc-form-field + .mat-mdc-form-field {
-    margin-left: 8px;
-  }
-  
+
   .search-container {
     display: flex;
     align-items: center;
-    margin: 15px 30px;
+    margin-left: 15%;
+    :hover {
+      border: 1px solid white;
+    }
   }
   
   .search-input {
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.568);
     border-radius: 4px;
     font-size: 16px;
     margin-right: 10px;
+    // background: #000;
+
   }
   
   .search-button {
     padding: 8px 16px;
     background-color: #007bff;
-    color: #fff;
+    color: #0c0c0c;
     border: none;
     border-radius: 4px;
     font-size: 16px;
@@ -71,154 +88,129 @@
   .search-button:hover {
     background-color: #0056b3;
   }
-  
-  
+
+/* CSS styles */
+.navbar-container {
+  background: linear-gradient(to right, #cc2b5e , #753a88);
+  position: relative;
+  // top: 0;
+  left: -100%; /* Hide the navbar by default */
+  width: 100%;
+  height: 50px;
+  background-color: #fff; /* Set your desired background color */
+  transition: left 0.3s ease-in-out;
+  z-index: 999; // It can be overlapped by component if zindex > 999
+}
+
+.navbar-container.active {
+  position: fixed;
+  left: 0px; // Showing the navbar when active class is added 
+  background: rgb(5, 3, 5);
+  margin-top: -25px;
+}
+
+.card-top {
+  background: linear-gradient(to right, #cc2b5e , #753a88);
+  padding-top: 90px;
+}
+
+/* Style the icon or button in the header */
+.fa-bars {
+  margin-left: 1%;
+  font-size: 28px; /* Adjust the size as needed */
+  cursor: pointer;
+  margin-top: -70px;
+  color: white;
+  z-index: 9999;
+  position: fixed;
+}
+
+.products-cont {
+  margin-bottom: 0px;
+  // margin-top: 100px;
+  transition: margin-top 0.32s ease-in-out;
+  // margin-left: 750px;
+  // background: #000;
+
+}
 
 
+.whole {
+  box-sizing: border-box;
+  background: linear-gradient(to right, #cc2b5e , #753a88);
+}
 
-// .example-card {
-//     width: 300px;
-//     margin-bottom: 20px;
-//   }
-  
-//   .mat-card-header {
-//     background-color: #333;
-//     color: #fff;
-//   }
-  
-//   .mat-card-title,
-//   .mat-card-subtitle {
-//     color: #fff;
-//   }
-  
-//   .mat-card-content {
-//     padding: 16px;
-//   }
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #cc2b5e, #753a88);
+  z-index: -1;
+}
 
-// .example-card {
-//     margin-bottom: 20px;
-//   }
+.products-cont.move-up {
+  // margin-left: 0;
+  // margin-right: 0;
+  margin-top: -90px;
+}
+
+.white-color {
+  color: white;
+  cursor: pointer;
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+  // justify-content: end;
+  height: 50px;
+}
+.item :hover {
+  border-bottom: 1px solid white;
+  // background: white;
+}
+
+// Add to Cart Style
+.add-to-cart {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+
+    /* "to left" / "to right" - affects initial color */
+    background: linear-gradient(to left, blue 50%, rgb(208, 20, 233) 50%) right;
+    border: none;
+    border-radius: 50px;
+    background-size: 200%;
+    transition: .4s ease-out;
+}
+
+.add-to-cart:hover {
+  // background: linear-gradient(to bottom, #FFA500 0%, #FFD700 100%);
+  background-position: left;
+}
+
+.placeholder-text {
+  position: absolute;
+  top: 50%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  color: whitesmoke;
+  /* Add more styles as needed */
+}
+
+.star-rating {
+    display: inline-block;
+    font-size: 1.3rem;
+    color: #ffd700; /* Yellow color for filled stars */
+  }
   
-//   .row {
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: space-around;
-//   }
+  .star-rating::before {
+    content: '\2605'; /* Unicode character for a star */
+  }
   
-//   .col-md-4 {
-//     flex: 0 0 33.33%;
-//     max-width: 33.33%;
-//     padding: 10px;
-//   }
-  
-//   .item-card {
-//     max-width: 100%;
-//   }
-  
-//   .mat-card-header {
-//     background-color: #333;
-//     color: #fff;
-//     padding: 10px;
-//   }
-  
-//   .mat-card-title,
-//   .mat-card-subtitle {
-//     color: #fff;
-//     margin-bottom: 10px;
-//   }
-  
-//   .mat-card-image {
-//     height: 200px;
-//     object-fit: cover;
-//   }
-  
-//   .mat-card-content {
-//     padding: 16px;
-//   }
-  
-//   .btn-primary {
-//     background-color: #333;
-//     color: #fff;
-//     margin-top: 10px;
-//   }
-  
-//   .btn-primary:hover {
-//     background-color: #555;
-//   }
-  
-//   img {
-//     width: 100%;
-//     height: auto;
-//   }
-  
-// .example-card {
-//     margin-bottom: 20px;
-//   }
-  
-//   .row {
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: space-between; /* Add even spacing between cards */
-//   }
-  
-//   .col-md-4 {
-//     flex: 0 0 30%; /* Adjust the width of each card column */
-//     max-width: 30%;
-//     margin-bottom: 20px; /* Add spacing between cards */
-//   }
-  
-//   .item-card {
-//     max-width: 100%;
-//     height: 100%; /* Reduce the card size */
-//     box-sizing: border-box; /* Ensure padding and border are included in the total width */
-//     border-radius: 8px; /* Add rounded corners to the card */
-//     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
-//   }
-  
-//   .mat-card-header {
-//     background-color: #333;
-//     color: #fff;
-//     padding: 10px;
-//     border-top-left-radius: 8px; /* Round the top left corner of the header */
-//     border-top-right-radius: 8px; /* Round the top right corner of the header */
-//   }
-  
-//   .mat-card-title,
-//   .mat-card-subtitle {
-//     color: #fff;
-//     margin-bottom: 10px;
-//   }
-  
-//   .mat-card-image {
-//     height: 150px; /* Adjust the height of the card image */
-//     object-fit: cover;
-//     border-top-left-radius: 8px; /* Round the top left corner of the image */
-//     border-top-right-radius: 8px; /* Round the top right corner of the image */
-//   }
-  
-//   .mat-card-content {
-//     padding: 16px;
-//   }
-  
-//   .btn-primary {
-//     background-color: #333;
-//     color: #fff;
-//     margin-top: 10px;
-//   }
-  
-//   .btn-primary:hover {
-//     background-color: #555;
-//   }
-  
-// .mat-card:hover {
-//      transition: 0.3s ease-in-out;
-//      transform: scale(1.1);
-//   }
-// //   img {
-// //     width: 100%;
-// //     height: 100%;
-// //     object-fit: cover;
-// //     border-top-left-radius: 8px; /* Round the top left corner of the image */
-// //     border-top-right-radius: 8px; /* Round the top right corner of the image */
-// //   }
+  .empty-star-rating {
+    color: #ccc; /* Gray color for empty stars */
+  }
   

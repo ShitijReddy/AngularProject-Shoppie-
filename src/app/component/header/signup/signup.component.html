@@ -9,11 +9,13 @@
     <input type="password" id="password" formControlName="password">
   </div>
   <div>
-    <label for="role">Role</label>
-    <select id="role" formControlName="role">
-      <option value="customer">Customer</option>
-      <option value="retailer">Retailer</option>
-    </select>
+    <label for="confirmPassword">Confirm Password</label>
+    <input type="password" id="confirmPassword" formControlName="confirmPassword">
   </div>
-  <button type="submit" >Sign Up</button>
+  <div>
+    <label for="role">Role</label>
+    <input type="text" id="role" formControlName="role">
+  </div>
+  <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
 </form>
+

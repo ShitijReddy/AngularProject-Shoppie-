@@ -1,0 +1,219 @@
+.home-container {
+    display: flex;
+    // justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+  }
+  
+  .image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  
+  .image-container img {
+    width: 400px;
+    height: 300px;
+  }
+  
+  .view-products-btn {
+    display: block;
+    margin: 20px auto;
+  }
+.cont-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    button{
+        background-color: #00b495;
+        border: 1px solid #00b495;
+        margin: 0px auto auto;
+        // :hover {
+        //     background-color: rgb(233, 18, 18);
+        // }
+    }
+    button:hover {
+        background-color: #00a186; 
+    }
+    
+    
+}
+.inner-cont-1{
+    margin-top: -20px;
+    display: flex;
+    img {
+        width: 22%;
+        height: 30%;
+        // border: 1px solid green;
+        margin: 0 20px;
+    }
+    // border: 1px solid red;
+    align-items: center;
+    justify-content: space-around;
+    // padding: 0 150px;
+}
+
+
+.top-img {
+    top: -35px;
+    position: relative;
+}
+
+.shop-more {
+    box-sizing: border-box;
+    position: absolute;
+    top: 500px;
+    background-color: rgb(39, 123, 138);
+    width: 18%;
+    padding: 9px 2px;
+    border-radius: 20px;
+
+    
+}
+
+.container-2 {
+    margin-top: 2%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    .div-1 {
+       
+        padding:30px;
+        
+        
+    }
+
+    .div-2 {
+        margin-right: 20px;
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h2{
+            font-size:25px;
+        }
+        p{
+            font-size:15px;
+        }
+        .dual {
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+          
+              /* "to left" / "to right" - affects initial color */
+              background: linear-gradient(to left, blue 50%, rgb(208, 20, 233) 50%) right;
+              border: none;
+              border-radius: 50px;
+              background-size: 200%;
+              transition: .4s ease-out;
+              :hover {
+                background-position: left;
+              }
+        }
+    }
+}
+
+
+//   .container-3 {
+//     display: flex;
+//     margin: 40px 5px;
+//     margin-top: 50px;
+//     justify-content: space-between;
+//     .div1 {
+//       width: 560px;
+//       height: 900px;
+//     //   border: 1px solid red;
+//       background-image: url("https://cdn.shopify.com/s/files/1/0289/3692/files/Women.png?v=1683127075&width=750");
+//       background-size: contain;
+//       background-repeat: no-repeat;
+//     //   background-position: center;
+//       margin-right: 10px;
+        
+//     }
+  
+//     .div2 {
+//       width: 560px;
+//       height: 900px;
+//     //   border: 1px solid black;
+//       background-image: url("https://cdn.shopify.com/s/files/1/0289/3692/files/Men.png?v=1683127088&width=750");
+//       background-size: contain;
+//       background-repeat: no-repeat;
+//       margin-left: 10px;
+//     //   background-position: center;
+//     }
+//   }
+.container-3 {
+    display: flex;
+    margin: 40px 0px;
+    margin-left: 0;
+    // border: 1px solid black;
+    margin-top: 50px;
+    
+    .div1 {
+      width: 560px;
+      height: 510px;
+      background-image: url("https://cdn.shopify.com/s/files/1/0289/3692/files/Women.png?v=1683127075&width=750");
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-right: 10px;
+      position: relative;
+    //   border: 1px solid red;
+      
+    .button {
+        position: absolute;
+        background-color: #00b495;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        margin-top: 70%;
+        margin-left: 30%;
+        border-radius: 20px;
+        font-size: medium;
+      }
+      
+      .button:hover {
+        background-color: #00a186; /* Update the background color for hover state */
+      }
+    }
+  
+    .div2 {
+      width: 560px;
+      height: 510px;
+      background-image: url("https://cdn.shopify.com/s/files/1/0289/3692/files/Men.png?v=1683127088&width=750");
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-left: 10px;
+      position: relative;
+    //   border: 1px solid green;
+      
+      .button {
+        position: absolute;
+        background-color: #00b495;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        margin-top: 70%;
+        margin-left: 30%;
+        border-radius: 20px;
+        font-size: medium;
+      }
+      .button:hover {
+        background-color: #00a186; /* Update the background color for hover state */
+      }
+    }
+  }
+  

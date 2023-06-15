@@ -17,6 +17,7 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  
   searchControl: FormControl = new FormControl();
   products: any[] = [];
 

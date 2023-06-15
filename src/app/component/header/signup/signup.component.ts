@@ -27,8 +27,8 @@ export class SignupComponent {
       username: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
       confirmPassword: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      role: new FormControl('customer', Validators.required),
+      // role: new FormControl('', [Validators.required, Validators.role]),
+      role: new FormControl('', Validators.required),
     });
   }
 

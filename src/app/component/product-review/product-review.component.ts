@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Review } from 'src/datainterface';
 import { ApiService } from 'src/app/service/api.service';
@@ -13,6 +13,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 })
 export class ProductReviewComponent implements OnInit {
+  @Output() dataShared = new EventEmitter<any>();
+
+  // Method to share data
+  shareData() {
+    const data = `${this.calculateAverageRating()}`;
+    this.dataShared.emit(data);
+  }
   
   @ViewChild(MatSlider)
   slider!: MatSlider;
@@ -83,7 +90,7 @@ export class ProductReviewComponent implements OnInit {
     for (const review of this.reviews) {
       totalRating += review.rating;
     }
-    return totalRating > 0 ? totalRating / this.reviews.length : 0;
+    return totalRating > 0 ? Math.floor(totalRating / this.reviews.length) : 0;
   }
 
   totalReviews(): number {
@@ -97,7 +104,7 @@ export class ProductReviewComponent implements OnInit {
     if (value >= 1000) {
       return Math.round(value / 1000) + 'k';
     }
-
+    
     return `${value}`;
   }
 
@@ -112,11 +119,7 @@ sortReviews() {
   } else if (this.selectedSortingOption === 'highest-rated') {
     // Sort reviews by highest-rated
     this.reviews.sort((a, b) => b.rating - a.rating);
-  } 
-  // else if (this.selectedSortingOption === 'most-helpful') {
-  //   // Sort reviews by most helpful (if you have a property for helpfulness, adjust accordingly)
-  //   this.reviews.sort((a, b) => b.helpfulness - a.helpfulness);
-  // }
+  }
 }
 
 // Inside the review component class

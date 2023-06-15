@@ -35,7 +35,10 @@ import { MatTableModule } from '@angular/material/table';
 
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MyProductsComponent } from './component/my-products/my-products.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { HomeComponent } from './component/home/home.component';
 
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
@@ -50,6 +53,7 @@ import { MyProductsComponent } from './component/my-products/my-products.compone
     MyOrdersComponent,
     ProductReviewComponent,
     MyProductsComponent,
+    HomeComponent,
     // SignupComponent
   ],
   imports: [
@@ -70,6 +74,8 @@ import { MyProductsComponent } from './component/my-products/my-products.compone
     MatSelectModule,
     MatTableModule,
     MatCheckboxModule,
+    NgSelectModule,
+    CarouselModule.forRoot(),
     RouterModule.forRoot([
 
   {path:'', redirectTo:'products', pathMatch:'full'},

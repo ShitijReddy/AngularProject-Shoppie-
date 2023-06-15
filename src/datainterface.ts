@@ -2,6 +2,7 @@ export interface product {
     prodName: string,
     prodDesc: string,
     image: string,
+    sideImg: string,
     price: number,
     quant: number,
     category: string,

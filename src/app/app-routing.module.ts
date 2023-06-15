@@ -9,9 +9,9 @@ import { CheckoutComponent } from './component/cart/checkout/checkout.component'
 import { MyOrdersComponent } from './component/my-orders/my-orders.component';
 import { AuthGuard } from './auth.guard';
 import { MyProductsComponent } from './component/my-products/my-products.component';
-
+import { HomeComponent } from './component/home/home.component';
 const routes: Routes = [
-  {path:'', redirectTo:'products', pathMatch:'full'},
+  {path:'', component: HomeComponent},
   {path:'products', component: ProductComponent},
   {path:'cart', component:CartComponent},
   {path: 'signup', component: SignupComponent},

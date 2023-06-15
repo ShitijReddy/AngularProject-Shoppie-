@@ -78,3 +78,17 @@
 p {
     margin-top: 10px;
 }
+.star-rating {
+    display: inline-block;
+    font-size: 1.3rem;
+    color: #ffd700; // Yellow color for filled stars
+  }
+  
+  .star-rating::before {
+    content: '\2605'; // Unicode character for a star 
+  }
+  
+  .empty-star-rating {
+    color: #ccc; // Gray color for empty stars
+  }
+  

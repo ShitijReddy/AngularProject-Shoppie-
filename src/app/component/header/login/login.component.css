@@ -8,8 +8,6 @@ h2 {
 form {
   max-width: 400px;
   margin: 0 auto;
-  padding: 20px;
-  background-color: #f5f5f5;
   border-radius: 4px;
 }
 
@@ -27,6 +25,10 @@ input {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+.pass-container {
+  margin: 30px 0;
 }
 
 button {
@@ -54,18 +56,12 @@ button:disabled {
   font-family: "Poppins", sans-serif;
 }
 
-body {
-  background: #ecf0f3;
-}
-
 .wrapper {
   max-width: 350px;
   min-height: 500px;
   margin: 80px auto;
   padding: 40px 30px 30px 30px;
-  background-color: #ecf0f3;
   border-radius: 15px;
-  box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
 }
 
 .logo {
@@ -78,7 +74,6 @@ body {
   height: 80px;
   object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0px 0px 3px #5f5f5f, 0px 0px 0px 5px #ecf0f3, 8px 8px 15px #a7aaa7, -8px -8px 15px #fff;
 }
 
 .wrapper .name {
@@ -96,7 +91,6 @@ body {
   outline: none;
   background: none;
   font-size: 1.2rem;
-  color: #666;
   padding: 10px 15px 10px 10px;
   /* border: 1px solid red; */
 }
@@ -105,11 +99,6 @@ body {
   padding-left: 10px;
   margin-bottom: 20px;
   border-radius: 20px;
-  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
-}
-
-.wrapper .form-field .fas {
-  color: #555;
 }
 
 .wrapper .btn {
@@ -119,8 +108,6 @@ body {
   background-color: #03A9F4;
   color: #fff;
   border-radius: 25px;
-  box-shadow: 3px 3px 3px #b1b1b1, -3px -3px 3px #fff;
-  letter-spacing: 1.3px;
 }
 
 .wrapper .btn:hover {
@@ -142,4 +129,21 @@ body {
     margin: 30px 20px;
     padding: 40px 15px 15px 15px;
   }
+}
+.grid {
+  display: flex;
+  flex-direction: row;
+  margin-top: 70px;
+  justify-content: center;
+}
+
+.section-header {
+  margin-left: 40px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.ecomm-logo {
+  background-repeat: no-repeat;
+  background-size: contain;
 }

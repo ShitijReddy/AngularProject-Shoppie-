@@ -17,7 +17,7 @@ import { product } from 'src/datainterface';
 import { ViewChild } from '@angular/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { MatTableDataSource } from '@angular/material/table';
-
+import { CategoryService } from 'src/app/shared/category.service.service';
 
 @Component({
   selector: 'app-product',
@@ -25,6 +25,13 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit{
+  // Show Add To Cart
+  
+  avgRating !: number;
+  // Tags
+  selectedTag!: string;
+  availableTags!: string[];
+
   isAllItemsSelected: boolean = true;
   isFashion:boolean=false;
   public productList: any;
@@ -53,6 +60,17 @@ export class ProductComponent implements OnInit{
 
   filteredProductsByTag: any;
   searchTag: string = "";
+  searchTags: string[] = [];
+
+
+  hoverImage: string | null = null;
+  hoveredItem: string | null = null;
+  // Component code
+showNavbar: boolean = false;
+
+toggleNavbar() {
+  this.showNavbar = !this.showNavbar;
+}
 
   
   
@@ -60,15 +78,16 @@ export class ProductComponent implements OnInit{
 
   constructor(private shared: ApiService, private cartService: CartService,
      private prodApi: ProductApiService, private http: HttpClient,
-     private reviewService: ReviewService
+     private reviewService: ReviewService, private categoryService: CategoryService
     ){
       this.productList = this.filterByCategory("All Items");
-      // this.filteredProductsByTag = this.filterByCategory("All Items");
+      this.filteredProductsByTag = this.filterByCategory("All Items");
      }
 
   // addToSharedArray() {     this.sharedService.sharedArray = this.productList;   }
 
   ngOnInit(): void {
+    this.loadAvailableTags();
     this.productId = "123"; // Replace with actual product ID
     this.reviewService.getReviewsByProductId(this.productId).subscribe(reviews => {
       this.reviews = reviews;
@@ -77,6 +96,12 @@ export class ProductComponent implements OnInit{
 
     this.newReview.id = this.unqid;
     this.unqid += 1;
+
+    this.categoryService.getCategory().subscribe(category => {
+      // Handle the category change
+      console.log("Service getting invoked")
+      this.filterByCategory(category);
+    });
 
     if(true){
       this.shared.data$.subscribe(data => {
@@ -117,16 +142,6 @@ export class ProductComponent implements OnInit{
     this.cartService.addToCart(item);
     this.compareList = [];
     this.compareDataSource.data = [];
-    // updating quantity
-    // this.prodApi.updateProductApi(item)
-    // .subscribe((res)=>{
-    //   console.log(res);
-    // })
-    // this.addToSharedArray();
-    
-    // const updatedItem = { ...item, quant: item.quant - 1 }; // Update the quant property
-
-    // const url = `http://localhost:3000/productList?prodName=${item.prodName}`;
 
       const updatedItem = { ...item, quant: item.quant - 1 };
       item.quant -= 1;
@@ -153,14 +168,22 @@ export class ProductComponent implements OnInit{
       this.prodApi.getProductsApi()
       .subscribe(res=>{
         this.productList = res;
+        console.log(`From Dj Server: ${this.productList}`)
         // this.mainProductList = 
       })
     }
     else {
-      this.prodApi.getFilteredFashion(category)
-      .subscribe(res=>{
+      this.prodApi.getProductsApi()
+      .subscribe(res=>
+      {
         this.productList = res;
-      })
+        const filteredProducts = this.productList.filter((product: any) => product.category.toLowerCase().includes(category.toLowerCase()));
+        // console.log(filteredProducts);
+        this.productList = filteredProducts
+      });
+      
+      
+
     }
   }
   
@@ -260,32 +283,61 @@ export class ProductComponent implements OnInit{
       }
       this.compareDataSource.data = this.compareList;
     }
+    handleSharedData(data: any) {
+      this.avgRating = data;
+      console.log('Shared data received:', data);
+      // Handle the shared data as needed
+    }
+
+    loadAvailableTags(): void {
+      // Assuming you have a service method to fetch the available tags
+      this.prodApi.getAvailableTags().subscribe(tags => {
+        this.availableTags = tags;
+      });
+    }
 
     searchProductsByTag() {
 
       this.prodApi.getProductsApi()
-    .subscribe(res=>{
-      this.productList = res;
-      console.log(`Search tag is: ${this.searchTag}`)
-      // this.productList = this.mainProductList;
-      this.filteredProductsByTag = this.productList.filter(
-        (item : product) => 
-        item.tags.concat().join("").toLowerCase().includes(this.searchTag.toLowerCase())
-      );
-      this.shared.setData(this.filteredProductsByTag);
-      
+      .subscribe(res=>{
+        this.productList = res;
+        console.log(`Search tag is: ${this.searchTag}`)
+        // this.productList = this.mainProductList;
+        this.filteredProductsByTag = this.productList.filter(
+          (item : product) => 
+          item.tags.includes(this.searchTag.toLowerCase())
+        );
 
-    })
+        // If we select "Select a tag" then don't apply filter
+        if(!( this.searchTag == ""))
+        {
+          this.shared.setData(this.filteredProductsByTag);
+        }
+        
 
-
-      
-      // if (this.searchTag.trim().toLowerCase() === '') {
-      //   this.filteredProductsByTag = this.productList;
-      // } else {
-      //   this.productList = this.productList.filter((product: any) =>
-      //     product.tags.include(this.searchTag.toLowerCase())
-      //   );
-      // }
+      })
     }
+    clearSelection() {
+      this.searchTags = [];
+    }
+    
+    searchProductsByTags() {
+      this.prodApi.getProductsApi().subscribe(res => {
+        this.productList = res;
+        console.log(`Search tags are: ${this.searchTags}`);
+        this.filteredProductsByTag = this.productList.filter(
+          (item: product) =>
+            this.searchTags.some(tag => item.tags.includes(tag.toLowerCase()))
+        );
+    
+        // If no tags are selected, reset the filter
+        if (this.searchTags.length === 0) {
+          this.shared.setData(this.productList);
+        } else {
+          this.shared.setData(this.filteredProductsByTag);
+        }
+      });
+    }
+    
     
   }

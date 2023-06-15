@@ -1,0 +1,162 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.image-container img {
+  width: 400px;
+  height: 300px;
+}
+
+.view-products-btn {
+  display: block;
+  margin: 20px auto;
+}
+
+.cont-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cont-1 button {
+  background-color: #00b495;
+  border: 1px solid #00b495;
+  margin: 0px auto auto;
+}
+.cont-1 button:hover {
+  background-color: #00a186;
+}
+
+.inner-cont-1 {
+  margin-top: -20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.inner-cont-1 img {
+  width: 22%;
+  height: 30%;
+  margin: 0 20px;
+}
+
+.top-img {
+  top: -35px;
+  position: relative;
+}
+
+.shop-more {
+  box-sizing: border-box;
+  position: absolute;
+  top: 500px;
+  background-color: rgb(39, 123, 138);
+  width: 18%;
+  padding: 9px 2px;
+  border-radius: 20px;
+}
+
+.container-2 {
+  margin-top: 2%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.container-2 .div-1 {
+  padding: 30px;
+}
+.container-2 .div-2 {
+  margin-right: 20px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container-2 .div-2 h2 {
+  font-size: 25px;
+}
+.container-2 .div-2 p {
+  font-size: 15px;
+}
+.container-2 .div-2 .dual {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  /* "to left" / "to right" - affects initial color */
+  background: linear-gradient(to left, blue 50%, rgb(208, 20, 233) 50%) right;
+  border: none;
+  border-radius: 50px;
+  background-size: 200%;
+  transition: 0.4s ease-out;
+}
+.container-2 .div-2 .dual :hover {
+  background-position: left;
+}
+
+.container-3 {
+  display: flex;
+  margin: 40px 0px;
+  margin-left: 0;
+  margin-top: 50px;
+}
+.container-3 .div1 {
+  width: 560px;
+  height: 510px;
+  background-image: url("https://cdn.shopify.com/s/files/1/0289/3692/files/Women.png?v=1683127075&width=750");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+  position: relative;
+}
+.container-3 .div1 .button {
+  position: absolute;
+  background-color: #00b495;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-top: 70%;
+  margin-left: 30%;
+  border-radius: 20px;
+  font-size: medium;
+}
+.container-3 .div1 .button:hover {
+  background-color: #00a186; /* Update the background color for hover state */
+}
+.container-3 .div2 {
+  width: 560px;
+  height: 510px;
+  background-image: url("https://cdn.shopify.com/s/files/1/0289/3692/files/Men.png?v=1683127088&width=750");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 10px;
+  position: relative;
+}
+.container-3 .div2 .button {
+  position: absolute;
+  background-color: #00b495;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-top: 70%;
+  margin-left: 30%;
+  border-radius: 20px;
+  font-size: medium;
+}
+.container-3 .div2 .button:hover {
+  background-color: #00a186; /* Update the background color for hover state */
+}
