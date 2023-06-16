@@ -7,32 +7,32 @@ from django.http import HttpResponse
 from .models import Product, Order, Review
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
-from myapp.serializers import ShoppieUserSerializer
+from myapp.serializers import ShoppieUserSerializer, ProductSerializer, OrderSerializer, ReviewSerializer
 from myapp.models import ShoppieUser
 from rest_framework import status
-@csrf_exempt
-def product_list(request):
-    if request.method == 'GET':
-        products = Product.objects.all()
-        data = {'products': list(products.values())}
-        return JsonResponse(data)
+# @csrf_exempt
+# def product_list(request):
+#     if request.method == 'GET':
+#         products = Product.objects.all()
+#         data = {'products': list(products.values())}
+#         return JsonResponse(data)
 
-    elif request.method == 'POST':
-        data = {
-            'prodName': request.POST.get('prodName'),
-            'prodDesc': request.POST.get('prodDesc'),
-            'image': request.POST.get('image'),
-            'sideImg': request.POST.get('sideImg'),
-            'price': request.POST.get('price'),
-            'quant': request.POST.get('quant'),
-            'id': request.POST.get('id'),
-            'category': request.POST.get('category'),
-            'custName': request.POST.get('custName'),
-            'vendorName': request.POST.get('vendorName'),
-            'tags': request.POST.get('tags'),
-        }
-        product = Product.objects.create(**data)
-        return JsonResponse({'message': 'Product created successfully', 'product': model_to_dict(product)})
+#     elif request.method == 'POST':
+#         data = {
+#             'prodName': request.POST.get('prodName'),
+#             'prodDesc': request.POST.get('prodDesc'),
+#             'image': request.POST.get('image'),
+#             'sideImg': request.POST.get('sideImg'),
+#             'price': request.POST.get('price'),
+#             'quant': request.POST.get('quant'),
+#             'id': request.POST.get('id'),
+#             'category': request.POST.get('category'),
+#             'custName': request.POST.get('custName'),
+#             'vendorName': request.POST.get('vendorName'),
+#             'tags': request.POST.get('tags'),
+#         }
+#         product = Product.objects.create(**data)
+#         return JsonResponse({'message': 'Product created successfully', 'product': model_to_dict(product)})
 
 
 @csrf_exempt
@@ -67,31 +67,38 @@ def product_detail(request, pk):
         return JsonResponse({'message': 'Product deleted successfully'})
 
 
-@csrf_exempt
+@api_view(['GET','POST'])
 def order_list(request):
     if request.method == 'GET':
-        orders = Order.objects.all()
-        data = {'orders': list(orders.values())}
-        return JsonResponse(data)
+        orders = Order.objects.all().values()
+        return JsonResponse(list(orders), safe=False)
 
-    elif request.method == 'POST':
-        data = {
-            'prodName': request.POST.get('prodName'),
-            'prodDesc': request.POST.get('prodDesc'),
-            'image': request.POST.get('image'),
-            'sideImg': request.POST.get('sideImg'),
-            'price': request.POST.get('price'),
-            'quant': request.POST.get('quant'),
-            'id': request.POST.get('id'),
-            'category': request.POST.get('category'),
-            'custName': request.POST.get('custName'),
-            'vendorName': request.POST.get('vendorName'),
-            'tags': request.POST.get('tags'),
-        }
-        order = Order.objects.create(**data)
-        return JsonResponse({'message': 'Order created successfully', 'order': model_to_dict(order)})
+    if request.method == 'POST':
+        orderserializer = OrderSerializer(data = request.data)
+        if(orderserializer.is_valid()):
+            orderserializer.save()
+        return HttpResponse({'message': 'Order created successfully'})
 
+@api_view(['GET','POST'])
+def review_list(request):
+    if request.method == 'GET':
+        reviews = Review.objects.all().values()
+        # data = {'reviews': list(reviews.values())}
+        return JsonResponse(list(reviews), safe=False)
 
+    if request.method == 'POST':
+        review_serializer = ReviewSerializer(data = request.data)
+        if(review_serializer.is_valid()):
+            review_serializer.save()
+        return HttpResponse({'message': 'Review Added successfully'})
+        # data = {
+        #     'rating': request.POST.get('rating'),
+        #     'content': request.POST.get('content'),
+        #     'id': request.POST.get('id'),
+        #     'createdAt': request.POST.get('createdAt'),
+        # }
+        # review = Review.objects.create(**data)
+    
 @csrf_exempt
 def order_detail(request, pk):
     order = get_object_or_404(Order, pk=pk)
@@ -183,22 +190,7 @@ def order_detail(request, pk):
 #         return JsonResponse({'message': 'User deleted successfully'})
 
 
-@csrf_exempt
-def review_list(request):
-    if request.method == 'GET':
-        reviews = Review.objects.all()
-        data = {'reviews': list(reviews.values())}
-        return JsonResponse(data)
 
-    elif request.method == 'POST':
-        data = {
-            'rating': request.POST.get('rating'),
-            'content': request.POST.get('content'),
-            'id': request.POST.get('id'),
-            'createdAt': request.POST.get('createdAt'),
-        }
-        review = Review.objects.create(**data)
-        return JsonResponse({'message': 'Review created successfully', 'review': model_to_dict(review)})
 
 
 @csrf_exempt
@@ -225,14 +217,44 @@ def review_detail(request, pk):
         review.delete()
         return JsonResponse({'message': 'Review deleted successfully'})
     
-@api_view(['POST'])
+@api_view(['GET','POST'])
 def usersignup(request):
-    print(request.data)
-    userserializer=ShoppieUserSerializer(data=request.data)
-    if(userserializer.is_valid()):
-        userserializer.save()
-        return HttpResponse({'message':'success'},status=status.HTTP_201_CREATED)
-    return HttpResponse({'message':'not successful'},status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'GET':
+        users = ShoppieUser.objects.all()
+        serializer = ShoppieUserSerializer(users, many=True)
+        print("users:", len(users))
+        # return JsonResponse(serializer.data)
+        # products = Product.objects.all()
+        data = {'users': list(users.values())}
+        return JsonResponse(data)
+    if request.method == 'POST':
+        print(request.data)
+        userserializer=ShoppieUserSerializer(data=request.data)
+        if(userserializer.is_valid()):
+            userserializer.save()
+            return HttpResponse({'message':'success'},status=status.HTTP_201_CREATED)
+        return HttpResponse({'message':'not successful'},status=status.HTTP_404_NOT_FOUND)
+
+@api_view(['GET','POST'])
+def product_list(request):
+    if request.method == 'GET':
+        products = Product.objects.all()
+        data = {'products': list(products.values())}
+        return JsonResponse(data)
+
+    elif request.method == 'POST':
+        product_serializer =  ProductSerializer(data = request.data)
+        if(product_serializer.is_valid()):
+            product_serializer.save()
+        # product = Product.objects.create(**data)
+# @api_view(['GET'])
+# def usersignup(request):
+#     print(request.data)
+#     userserializer=ShoppieUserSerializer(data=request.data)
+#     if(userserializer.is_valid()):
+#         userserializer.save()
+#         return HttpResponse({'message':'success'},status=status.HTTP_201_CREATED)
+#     return HttpResponse({'message':'not successful'},status=status.HTTP_404_NOT_FOUND)
 
 @api_view(['POST'])
 def userlogin(request):
@@ -240,8 +262,8 @@ def userlogin(request):
     password=request.data['password']
     userobj=ShoppieUser.objects.get(username=username,password=password)
     if(userobj):
-        return HttpResponse({'message':'success'},status=status.HTTP_201_CREATED)
+        return HttpResponse({'login':'success'},status=status.HTTP_201_CREATED)
     
 
-    return HttpResponse({'message':'not successful'},status=status.HTTP_404_NOT_FOUND)
+    return HttpResponse({'login':'not successful'},status=status.HTTP_404_NOT_FOUND)
 

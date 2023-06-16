@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, of, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { EventEmitter } from '@angular/core';
 import { BehaviorSubject } from 'rxjs'; 
 import { ApiService } from './service/api.service';
@@ -32,16 +32,16 @@ export class AuthService {
   // }
 
   fetchUsers(): void {
-    this.http.get<any[]>('http://localhost:3000/users')
+    this.http.get<any>('http://127.0.0.1:8000/api/signup/')
       .pipe(
-        catchError(error => {
-          console.error('Failed to fetch user data:', error);
-          return throwError('Failed to fetch user data');
-        })
+        map(response => response.users)
+        
       )
       .subscribe(users => {
         this.users = users;
+        console.log(`users in fetchUsers: ${users.length}`)
       });
+      
   }
 
   setToken(token: string): void {
@@ -68,14 +68,17 @@ export class AuthService {
   
 
   login({ fname, password }: any): Observable<any> {
-    const user = this.users.find(u => u.fname === fname && u.password === password);
-    if (user) {
-      console.log("Logged In user is:", user.username)
-      this.apiService.setLogUser(user);
+    for(const use of this.users){
+      console.log(`use.username is ${use.username}`);
+    }
+    const userr = this.users.find(u => u.fname == fname && u.password === password);
+    if (userr) {
+      console.log("Logged In user issssss:", userr.username)
+      this.apiService.setLogUser(userr);
       // this.header.updateIsCustomer();
       this.setToken('abcdef');
       this.loginEvent.emit();
-      return of(user);
+      return of(userr);
     } else {
       return throwError(new Error('Failed to Login'));
     }

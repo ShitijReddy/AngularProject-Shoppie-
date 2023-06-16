@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { product, user } from 'src/datainterface';
+import { Review, product, user } from 'src/datainterface';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -11,18 +11,15 @@ export class ProductApiService {
 
   constructor(private http: HttpClient) { }
 
-  addProductApi(data: product) {
-    // console.log(data)
-    return this.http.post('http://localhost:3000/productList/', data);
-  }
+  
 
   getProductsApi() {
-    return this.http.get(`http://localhost:3000/productList`);
+    // return this.http.get(`http://localhost:3000/productList`);
 
                 // Data from Django Server    
-    // return this.http.get<any>('http://127.0.0.1:8000/api/products/').pipe(
-    //   map(response => response.products)
-    // );
+    return this.http.get<any>('http://127.0.0.1:8000/api/products/').pipe(
+      map(response => response.products)
+    );
   }
 
   updateProductApi(prod: product) {
@@ -41,14 +38,26 @@ export class ProductApiService {
   createUser(user: user){
     // return this.http.post('http://localhost:3000/users', user);
     let data={
-      'userid':1,
+      'userid':10,
       'username':user.username,
       'password':user.password,
       'role':user.role
     }
-    console.log(data);
+    console.log(`data is ${data}`);
     return this.http.post('http://127.0.0.1:8000/api/signup/', data);
   }
+
+  addProductApi(data: product) {
+    // console.log(data)
+    return this.http.post('http://127.0.0.1:8000/api/products/', data);
+    
+  }
+
+  addReviewApi(newReview: Review){
+    this.http.post('http://127.0.0.1:8000/api/reviews/', newReview);
+  }
+
+  
 
   getAllUsers() {
     this.http.get('http://127.0.0.1:8000/api/users/').subscribe(

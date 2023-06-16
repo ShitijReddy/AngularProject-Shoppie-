@@ -11,7 +11,6 @@ class Product(models.Model):
     category = models.CharField(max_length=50)
     custName = models.CharField(max_length=100)
     vendorName = models.CharField(max_length=100)
-    tags = models.TextField()
 
     def __str__(self):
         return self.prodName
@@ -27,7 +26,6 @@ class Order(models.Model):
     category = models.CharField(max_length=50)
     custName = models.CharField(max_length=100)
     vendorName = models.CharField(max_length=100)
-    tags = models.TextField()
 
     def __str__(self):
         return self.prodName
@@ -38,7 +36,7 @@ class Order(models.Model):
 class Review(models.Model):
     rating = models.IntegerField(default=0)
     content = models.CharField(max_length=50)
-    id = models.IntegerField(default=0, primary_key=True)
+    id = models.AutoField( primary_key=True)
     createdAt = models.DateField()
 
 class ShoppieUser(models.Model):

@@ -19,7 +19,7 @@ export class ApiService {
 
   setData(data: any) {
     this.dataSubject.next(data);
-  }
+  } 
 
   setLogUser(loguser: user){
     this.loguserSubject.next(loguser); 

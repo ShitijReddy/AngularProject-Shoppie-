@@ -6,6 +6,7 @@ import { ApiService } from 'src/app/service/api.service';
 import { ViewChild } from '@angular/core';
 import { MatSlider, MatSliderChange } from '@angular/material/slider';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ProductApiService } from 'src/app/service/product-api.service';
 @Component({
   selector: 'app-product-review',
   templateUrl: 'product-review.component.html',
@@ -37,7 +38,8 @@ export class ProductReviewComponent implements OnInit {
     createdAt: new Date
   };
 
-  constructor(private http: HttpClient, private apiService: ApiService, private formBuilder: FormBuilder) {}
+  constructor(private http: HttpClient, private apiService: ApiService, private formBuilder: FormBuilder,
+              private prodApi: ProductApiService) {}
 
   ngOnInit() {
     this.loadReviews();
@@ -48,10 +50,10 @@ export class ProductReviewComponent implements OnInit {
   }
 
   loadReviews() {
-    this.http.get(`http://localhost:3000/reviews?productId=${this.productId}`)
+    this.http.get(`http://127.0.0.1:8000/api/reviews`)
       .subscribe(
         response => {
-          this.reviews = response as Review[];
+          // this.reviews = response as Review[];
         },
         error => {
           console.error('Failed to fetch reviews:', error);
@@ -71,18 +73,7 @@ export class ProductReviewComponent implements OnInit {
     });
 
     // this.newReview.userId = this.apiService.loguser$.
-    this.http.post('http://localhost:3000/reviews', this.newReview)
-      .subscribe(
-        response => {
-          console.log('Review created successfully:', response);
-          this.reviews.push(this.newReview);
-          // Perform any necessary actions after successful creation
-        },
-        error => {
-          console.error('Failed to create review:', error);
-          // Handle error if needed
-        }
-      );
+    this.prodApi.addReviewApi(this.newReview);
   }
 
   calculateAverageRating(): number {

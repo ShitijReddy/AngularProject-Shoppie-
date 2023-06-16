@@ -156,10 +156,12 @@ toggleNavbar() {
           console.error('Error updating item quantity:', error);
           }
       });
+      
 
     }
 
   getProductList() {
+    console.log(`this.productList in getProdList: ${this.productList}`)
     return this.productList;
   }
   
@@ -338,6 +340,21 @@ toggleNavbar() {
         }
       });
     }
+
+    isUserCustomer(){
+      let r;
+      this.shared.loguser$.subscribe(
+        res => {
+           r = res.role;
+        }
+      );
+      if(r == "customer"){
+        return true;
+      }
+      return false;
+    }
+
+    
     
     
   }

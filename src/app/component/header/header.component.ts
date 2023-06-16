@@ -175,7 +175,10 @@ export class HeaderComponent implements OnInit {
     this.updateIsCustomer();
     return this.isCustomer;
   }
+
+  isProductsPage(): boolean {
+    return this.router.url === '/products';
+  }
   
 
 }
-  

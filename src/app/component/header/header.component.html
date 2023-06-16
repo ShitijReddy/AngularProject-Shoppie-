@@ -10,13 +10,15 @@
             </div>
             
             <!-- Search Form -->
-            <form routerLink="" style="margin-left: 20px; align-items: center; " [formGroup]="searchProductForm" (ngSubmit)="searchProduct(searchBar.value)">
-                <input (change)="revertHideAutoComplete()" #searchBar formControlName="searchBar" type="text" [formControl]="searchControl" class="form-control" placeholder="Search products...">
-            </form>
-            
-            <span class="fas fa-search search-icon" >
-
-            </span>
+            <ng-container >
+                <form routerLink="/products" style="margin-left: 30px; align-items: left; " [formGroup]="searchProductForm" (ngSubmit)="searchProduct(searchBar.value)">
+                    <input (change)="revertHideAutoComplete()" #searchBar formControlName="searchBar" type="text" [formControl]="searchControl" class="form-control" placeholder="Search products...">
+                </form>
+                
+                <span class="fas fa-search search-icon" >
+    
+                </span>
+            </ng-container>
         </div>
         
         
@@ -26,7 +28,7 @@
             <button type="button" *ngIf="!getIsCustomer()" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Add New Product
             </button>
-            <button routerLink="my-products" *ngIf="!getIsCustomer()" class="btn">Customer Orders</button>
+            <button routerLink="my-products" *ngIf="!getIsCustomer()" class="btn">Pending Orders</button>
         </div>
 
         <!-- My Orders Button -->

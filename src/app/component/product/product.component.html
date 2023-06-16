@@ -94,7 +94,7 @@
                         </mat-expansion-panel>
                         
                     </mat-accordion>
-                    <button class="btn btn-primary add-to-cart" style="margin-top: 22px;" *ngIf="hoveredItem === item.id" (click)="addtocart(item)">Add to Cart</button>
+                    <button class="btn btn-primary add-to-cart" style="margin-top: 22px;" *ngIf="hoveredItem === item.id && isUserCustomer()" (click)="addtocart(item)">Add to Cart</button>
                     <!-- <button  class="btn btn-primary" style="margin-top: 10px;" (click)="addtocart(item)">Add to Cart</button> -->
                 </div>
             </ng-container>

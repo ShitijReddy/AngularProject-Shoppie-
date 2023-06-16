@@ -37,7 +37,7 @@ export class OrderService {
     });
     // console.log(`Ordered products in get: ${this.orderedProducts}`);
     // return this.orderedProducts.filter((product) => product.custName == customerName);
-    this.http.get('http://localhost:3000/myorders')
+    this.http.get('http://127.0.0.1:8000/api/orders/')
     .subscribe({
       next: response => {
         this.orderedProducts = response as any[];
@@ -59,7 +59,7 @@ export class OrderService {
         console.log(`vName in getPendingOrders is: ${vName}`);
       }
     });
-    this.http.get('http://localhost:3000/myorders')
+    this.http.get('http://127.0.0.1:8000/api/orders/')
     .subscribe({
       next: response => {
         this.orderedProducts = response as any[];
@@ -78,7 +78,7 @@ export class OrderService {
   }
 
   saveOrderedProduct(product: any) {
-    this.http.post('http://localhost:3000/myorders', product)
+    this.http.post('http://127.0.0.1:8000/api/orders/', product)
       .subscribe({
         next: response => {
           console.log('Ordered product saved successfully:', response);
@@ -88,4 +88,33 @@ export class OrderService {
         }
       });
   }
+
+  // saveOrderedProduct(product: any): void {
+  //   const url = 'http://127.0.0.1:8000/api/orders/';
+  
+  //   this.http.get<any>(url)
+  //     .subscribe(
+  //       response => {
+  //         const orders = response.orders || [];
+  //         orders.push(product);
+  
+  //         const updatedPayload = {
+  //           orders: orders
+  //         };
+  
+  //         this.http.post(url, updatedPayload)
+  //           .subscribe(
+  //             () => {
+  //               console.log('Product saved successfully.');
+  //             },
+  //             error => {
+  //               console.error('Error saving product:', error);
+  //             }
+  //           );
+  //       },
+  //       error => {
+  //         console.error('Error retrieving orders:', error);
+  //       }
+  //     );
+  // }
 }
