@@ -4,6 +4,7 @@
 }
 
 .review-section {
+  width: 100%;
   margin-bottom: 20px;
   padding: 20px;
   background-color: #f5f5f5;
@@ -91,4 +92,106 @@ p {
 
 .empty-star-rating {
   color: #ccc;
+}
+
+.form-row {
+  margin-bottom: 10px;
+}
+.form-row label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+.form-row input[type=text],
+.form-row input[type=number],
+.form-row textarea {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+.form-row textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.submit-row {
+  text-align: center;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.submit-button:hover {
+  background-color: #2980b9;
+}
+
+.review-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+.review-form .form-row + .form-row {
+  margin-top: 15px;
+}
+
+.rev {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.points {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  padding: 2px 0 2px 0;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 13px;
+  vertical-align: middle;
+  background-color: #388e3c;
+  width: 30px;
+  height: 20px;
+}
+
+.point-star {
+  content: "★";
+  color: white;
+  font-size: xx-small;
+}
+
+.review-item {
+  margin: 10px 10px 10px 10px;
+}
+
+.bar {
+  width: 200px; /* Adjust the width as per your preference */
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  position: relative;
+  margin-left: 2%;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 5px;
+  background-color: #ff6b00;
+  background-color: rgb(0, 140, 255); /* Adjust the color as per your preference */
+}
+
+.main-bar {
+  display: flex;
+  align-items: center;
+  margin-left: 10%;
 }

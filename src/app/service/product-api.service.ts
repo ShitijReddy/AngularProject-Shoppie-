@@ -54,7 +54,7 @@ export class ProductApiService {
   }
 
   addReviewApi(newReview: Review){
-    this.http.post('http://127.0.0.1:8000/api/reviews/', newReview);
+    this.http.post('http://localhost:3000/reviews', newReview);
   }
 
   

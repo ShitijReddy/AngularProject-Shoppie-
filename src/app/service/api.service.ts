@@ -21,7 +21,7 @@ export class ApiService {
     this.dataSubject.next(data);
   } 
 
-  setLogUser(loguser: user){
+  setLogUser(loguser: user){ 
     this.loguserSubject.next(loguser); 
   }
 

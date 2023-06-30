@@ -1,0 +1,169 @@
+
+.close {
+    // position: relative;
+    // margin-left: 100%;
+    margin-top: 3%;
+    margin-left: 95%;
+    color: rgb(219, 26, 26);
+    // .close {
+      font-size: 34px; /* Increase the font size to make the icon larger */
+      width: 32px; /* Adjust the width to make the icon wider */
+      height: 32px; /* Adjust the height to make the icon taller */
+    // }
+    cursor: pointer;
+}
+  .main {
+    display: flex;
+    flex-direction: column;
+    // justify-content: start;
+    // align-items: center;
+    // padding: 20px 50px;
+    // margin-top: 300px;
+  }
+  .sub {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    width: 50%;
+    // border: 1px solid blue;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 2%;
+  }
+  .sub-1 {
+    width: 50%;
+    height: 400px;
+    background-size: contain;
+  }
+  .sub-11 {
+    // border: 2px solid green;
+    // background-color: honeydew;
+    width: 50%;
+    padding-left: 5%;
+    padding-top: 10%;
+    margin-top: -5%;
+    align-items: center;
+  }
+  .sub-2 {
+    width: 98%;
+    display: flex;
+    justify-content: start;
+    // pad
+    // &-1 {
+    //   margin-left: 5%;
+    // }
+    // &-2 {
+    //   margin-right: 5%;
+    // }
+  }
+
+  
+  img {
+    max-width:  130px;
+    max-height: 130px;
+    margin-left: 20px;
+    
+  }
+
+  .images {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 2%;
+    // border: 1px solid greenyellow;
+    // padding: 1px 10px;
+  }
+
+  .image-zoom-container {
+    width: 100px;
+    height: 100px;
+  }
+
+  
+  lib-ngx-image-zoom {
+    width: 10%;
+    height: 10%;
+    background-size: cover;
+  }
+  
+  // .big-image-zoom {
+  //   width: 200px; /* Set the desired width */
+  //   height: 200px; /* Set the desired height */
+  // }
+  
+  // .ngxImageZoomContainer {
+  //   background-size: 20%;
+  // }
+  // .ccc {
+  //   width: 200px;
+  //   height: 200px;
+  // }
+
+  .ccc {
+    display: flex;
+    justify-content: start;
+  }
+  
+  // .zoom-container {
+  //   width: 10%;
+  //   height: 10%;
+  //   max-width: 300px; /* Set the maximum width for the zoom container */
+  //   max-height: 300px; /* Set the maximum height for the zoom container */
+  //   // border: 1px solid red;
+  // }
+  
+  // .zzz {
+  //   border: 2px solid pink;
+  //   background: #000;
+  // }
+
+  ::ng-deep .ngxImageZoomContainer > img{
+    height: 400px!important;
+    width: 400px!important;
+    size: cover;
+    
+    }
+
+    .gray-bg {
+      margin-top: 5%;
+      // background-color: gray;
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      
+    }
+    
+    
+    .zoom-container {
+      // border: 1px solid orange;
+      // background-color: gray;
+      // border-radius: 10px;
+      // box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+      // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(0, 0, 0, 0.2);
+      // margin-left: 2%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border: 2px solid rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    // .product-details-dialog {
+    //   bottom: 0;
+    //   margin-top: 500px;
+    // }
+    
+    .details {
+      // border: 1px solid green;
+      background: whitesmoke;
+      margin-left: 5%;
+      width: 35%;
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+      padding-left: 2%;
+      padding-right: 2%;
+
+      hr {
+        width: 100%;
+        margin-left: -5%;
+        margin-right: -15%;
+      }
+    }

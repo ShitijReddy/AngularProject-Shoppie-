@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CarouselConfig } from 'ngx-bootstrap/carousel';
+// import { CarouselConfig } from 'ngx-bootstrap/carousel';
 import { CategoryService } from 'src/app/shared/category.service.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [{ provide: CarouselConfig, useValue: { interval: 3000, noPause: true } }] // Optional: configure carousel options
+  // providers: [{ provide: CarouselConfig, useValue: { interval: 3000, noPause: true } }] // Optional: configure carousel options
 })
 export class HomeComponent implements OnInit {
   images = [

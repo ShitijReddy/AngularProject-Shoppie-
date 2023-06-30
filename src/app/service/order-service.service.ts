@@ -1,6 +1,8 @@
 import { Injectable, VERSION } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApiService } from './api.service';
+import { Review } from 'src/datainterface';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -78,6 +80,20 @@ export class OrderService {
   }
 
   saveOrderedProduct(product: any) {
+    let userlogName = "noname"; // Initially no name => after login fetch username
+    this.apiService.loguser$.subscribe(user => {
+      if (user) {
+        userlogName = user.username;
+        console.log(`Logged in user's username in save order: ${userlogName}`)
+        // Use the username as needed
+      }
+    });
+    
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'X-User-ID': userlogName, // Include any other relevant user data
+    // });
+
     this.http.post('http://127.0.0.1:8000/api/orders/', product)
       .subscribe({
         next: response => {
@@ -85,36 +101,23 @@ export class OrderService {
         },
         error: error => {
           console.error('Failed to save ordered product:', error);
+          if (error.status === 500) {
+            // Display a pop-up message to the user indicating that ordering is not allowed
+            alert('You are not allowed to order as a vendor');
+            // Alternatively, you can use a modal dialog or any other UI component to display the message
+          } else {
+            // Handle other error cases if needed
+          }
         }
       });
   }
+  
+  getReviews(productTitle:string):Observable<Review[]>{
 
-  // saveOrderedProduct(product: any): void {
-  //   const url = 'http://127.0.0.1:8000/api/orders/';
-  
-  //   this.http.get<any>(url)
-  //     .subscribe(
-  //       response => {
-  //         const orders = response.orders || [];
-  //         orders.push(product);
-  
-  //         const updatedPayload = {
-  //           orders: orders
-  //         };
-  
-  //         this.http.post(url, updatedPayload)
-  //           .subscribe(
-  //             () => {
-  //               console.log('Product saved successfully.');
-  //             },
-  //             error => {
-  //               console.error('Error saving product:', error);
-  //             }
-  //           );
-  //       },
-  //       error => {
-  //         console.error('Error retrieving orders:', error);
-  //       }
-  //     );
-  // }
+    const url1 = `http://127.0.0.1:8000/api/reviewlist/${productTitle}/`;
+
+    return this.http.get<Review[]>(url1);
+
+  }
+
 }

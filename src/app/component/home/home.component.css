@@ -31,13 +31,69 @@
   flex-direction: column;
   align-items: center;
 }
-.cont-1 button {
-  background-color: #00b495;
-  border: 1px solid #00b495;
-  margin: 0px auto auto;
+.cont-1-top {
+  display: flex;
+  width: 100%;
+  margin-top: -2.7%;
+  margin-bottom: 2%;
 }
-.cont-1 button:hover {
-  background-color: #00a186;
+.cont-1-top-left {
+  width: 100%;
+  height: 550px;
+  background-image: url("https://cdn.shopify.com/s/files/1/0238/2821/files/230612_Secondary_Desktop_0002_Royale_Blanco_01.jpg?v=1686682288");
+  background-image: url("https://img.freepik.com/free-photo/two-beautiful-women-shopping-town_1303-16426.jpg?size=626&ext=jpg&ga=GA1.1.1256424137.1687945367&semt=sph");
+  background-image: url("https://img.freepik.com/free-photo/shoppers-talking-center_1098-12640.jpg?size=626&ext=jpg&ga=GA1.1.1256424137.1687945367&semt=sph");
+  background-image: url("https://cdn.shopify.com/s/files/1/0238/2821/files/Shop-Low-Tops.jpg?v=1687805943");
+  background-size: contain;
+  background-size: 130%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 80%;
+  height: 300px;
+  height: 610px; /* Adjust the height as needed */
+}
+.cont-1-top-right {
+  width: 80%;
+  height: 610px;
+  background-image: url("https://cdn.shopify.com/s/files/1/0238/2821/files/Shop-Womens-Sneakers230612-Secondary-Desktop.jpg?v=1687806304");
+  background-size: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.cont-1-top-right .text-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  margin-top: 35%;
+  margin-left: 10%;
+}
+.cont-1-top-right .text-overlay p, .cont-1-top-right .text-overlay h1 {
+  color: #fffcfc;
+}
+.cont-1-top-right .text-overlay h1 {
+  line-height: 1.2;
+  font-size: 38px;
+}
+.cont-1-top-right .text-overlay p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+.cont-1-top-right button {
+  background-color: #fdf9f9;
+  border: 1px solid black;
+  width: 70%;
+  padding: 5% 0;
+  text-transform: uppercase;
+  border-radius: 10px;
+}
+.cont-1-top-right button:hover {
+  transition: ease-out;
+  background-color: black;
+  color: white;
 }
 
 .inner-cont-1 {
@@ -61,7 +117,6 @@
   box-sizing: border-box;
   position: absolute;
   top: 500px;
-  background-color: rgb(39, 123, 138);
   width: 18%;
   padding: 9px 2px;
   border-radius: 20px;
@@ -123,7 +178,6 @@
 }
 .container-3 .div1 .button {
   position: absolute;
-  background-color: #00b495;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -133,8 +187,10 @@
   border-radius: 20px;
   font-size: medium;
 }
-.container-3 .div1 .button:hover {
-  background-color: #00a186; /* Update the background color for hover state */
+.container-3 .div1 .bb {
+  cursor: pointer;
+  margin-top: 70%;
+  margin-left: 30%;
 }
 .container-3 .div2 {
   width: 560px;
@@ -145,9 +201,13 @@
   margin-left: 10px;
   position: relative;
 }
+.container-3 .div2 .bb {
+  cursor: pointer;
+  margin-top: 70%;
+  margin-left: 30%;
+}
 .container-3 .div2 .button {
   position: absolute;
-  background-color: #00b495;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -157,6 +217,10 @@
   border-radius: 20px;
   font-size: medium;
 }
-.container-3 .div2 .button:hover {
-  background-color: #00a186; /* Update the background color for hover state */
+
+.feel {
+  font-size: 48px;
+  line-height: 1.31;
+  color: white;
+  border: 1px solid black;
 }

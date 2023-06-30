@@ -1,11 +1,11 @@
 <header class="fixed-header">
     <div class="navbar">
         <div  class="navbar-brand align-item-center d-flex">
-            <i (click)="goToPage('')" style=" cursor: pointer; font-size: 35px; color: white;  margin-left: 75px; margin-top: 2px;" class="fa-solid fa-house" ></i>
-            <i style="font-size: 40px; margin-left: 35px; color: white;" class="fas fa-shipping-fast">&nbsp;
+            <!-- <i (click)="goToPage('')" style=" cursor: pointer; font-size: 35px; color: white;  margin-left: 75px; margin-top: 2px;" class="fa-solid fa-house" ></i> -->
+            <i (click)="goToPage('')" style="cursor:pointer; font-size: 40px; margin-left: 55px; color: white;" class="fas fa-shipping-fast">&nbsp;
                 
             </i>
-            <div style="margin-top: 10px; color: white; cursor: pointer;" (click)="goToPage('/products')">
+            <div style="margin-top: 10px; color: white; cursor: pointer;" (click)="goToPage('')">
                 <strong  style="font-size: 30px; ">Shoppie</strong>
             </div>
             
@@ -15,7 +15,7 @@
                     <input (change)="revertHideAutoComplete()" #searchBar formControlName="searchBar" type="text" [formControl]="searchControl" class="form-control" placeholder="Search products...">
                 </form>
                 
-                <span class="fas fa-search search-icon" >
+                <span class="fas fa-search search-icon" style="margin-right: 100px;">
     
                 </span>
             </ng-container>
@@ -25,26 +25,26 @@
         
         <!-- Button trigger modal -->
         <div>
-            <button type="button" *ngIf="!getIsCustomer()" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <!-- <button type="button"  class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Add New Product
-            </button>
-            <button routerLink="my-products" *ngIf="!getIsCustomer()" class="btn">Pending Orders</button>
+            </button> -->
+            <button  routerLink="my-products" class="btn"  >Pending Orders</button>
         </div>
 
         <!-- My Orders Button -->
-        <button routerLink="my-orders" *ngIf="getIsCustomer()" class="btn ">My Orders</button>
+        <button routerLink="my-orders"  class="btn ">My Orders</button>
 
         
 
         <!-- Routing to Cart Page -->
-        <button style="margin-right: 30px;" *ngIf="getIsCustomer()" routerLink ="cart" class="btn">
+        <button style="margin-right: 30px;" routerLink ="cart" class="btn">
             <i style="font-size: 30px;" class="fa-solid fa-cart-shopping"></i>
             <!-- <i  style="font-size: 30px; color:  #000; " class="fas fa-cart-plus"></i> -->
             <div style=" font-size: 10px; background: rgb(4, 75, 228); top: -40px;" [matBadge]="totalItem" class="badgebg-danger"></div>
         </button>
         <button routerLink="signup" *ngIf="!isLoggedIn" class="btn ">Sign Up</button>
-        <button routerLink="login" *ngIf="!isLoggedIn" style="margin-right: 20px;"  class="btn ">Login</button>
-        <button *ngIf="isLoggedIn" class="btn " style="margin-right: 20px;" (click)="logout()">Logout</button>
+        <button mat-flat-button routerLink="login" *ngIf="!isLoggedIn" style="margin-right: 20px;" >Login</button>
+        <button mat-flat-button *ngIf="isLoggedIn" style="margin-right: 20px;" (click)="logout()">Logout</button>
         <!-- Header HTML code -->
 
         

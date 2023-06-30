@@ -1,9 +1,23 @@
+// .mainnn {
+//     display: flex;
+//     justify-content: space-around;
+//     width: 300%;
+//     // border: 1px solid brown;
+//     &-1 {
+//         width: 30%;
+//     }
+    
+//     &-2 {
+//         width: 60%;
+//     }
+// }
 .btn {
 //     width: 100px;
     margin: 12px 5px;
 //     padding: 2px 5px;
 }
 .review-section {
+    width: 100%;
     margin-bottom: 20px;
     padding: 20px;
     background-color: #f5f5f5;
@@ -91,4 +105,123 @@ p {
   .empty-star-rating {
     color: #ccc; // Gray color for empty stars
   }
+
+  .form-row {
+    margin-bottom: 10px;
   
+    label {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+  
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 100%;
+    }
+  
+    textarea {
+      height: 100px;
+      resize: vertical;
+    }
+  }
+  
+  .submit-row {
+    text-align: center;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  
+    &:hover {
+      background-color: #2980b9;
+    }
+  }
+  
+  .review-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  
+    .form-row + .form-row {
+      margin-top: 15px;
+    }
+  }
+  
+  
+  .rev{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    
+    // flex-direction: column;
+    // flex-wrap: wrap;
+    // justify-content: space-between;
+    // grid-template-columns: 30% 30% 30%;
+    // flex-wrap: wrap;
+  }
+
+  .points {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 2px 0 2px 0;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 13px;
+    vertical-align: middle;
+    background-color: #388e3c;
+    width: 30px;
+    height: 20px;
+  }
+
+  .point-star {
+    // margin-left: 10%;
+    content: '\2605';
+    color: white;
+    // size: 4px;
+    // background-color: white;
+    font-size: xx-small;
+
+  }
+
+  .review-item {
+    margin: 10px 10px 10px 10px;
+  }
+  
+  .bar {
+    width: 200px; /* Adjust the width as per your preference */
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    position: relative;
+    margin-left: 2%;
+  }
+  
+  .bar-fill {
+    height: 100%;
+    border-radius: 5px;
+    background-color: #ff6b00;
+    background-color: rgb(0, 140, 255); /* Adjust the color as per your preference */
+  }
+
+  .main-bar {
+    display: flex;
+    align-items: center;
+    margin-left: 10%;
+    // margin-top: 2%;
+    // justify-content: space-between;
+  }

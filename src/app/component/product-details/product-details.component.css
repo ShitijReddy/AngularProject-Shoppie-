@@ -1,0 +1,104 @@
+.close {
+  margin-top: 3%;
+  margin-left: 95%;
+  color: rgb(219, 26, 26);
+  font-size: 34px; /* Increase the font size to make the icon larger */
+  width: 32px; /* Adjust the width to make the icon wider */
+  height: 32px; /* Adjust the height to make the icon taller */
+  cursor: pointer;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.sub {
+  width: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 2%;
+}
+
+.sub-1 {
+  width: 50%;
+  height: 400px;
+  background-size: contain;
+}
+
+.sub-11 {
+  width: 50%;
+  padding-left: 5%;
+  padding-top: 10%;
+  margin-top: -5%;
+  align-items: center;
+}
+
+.sub-2 {
+  width: 98%;
+  display: flex;
+  justify-content: start;
+}
+
+img {
+  max-width: 130px;
+  max-height: 130px;
+  margin-left: 20px;
+}
+
+.images {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 2%;
+}
+
+.image-zoom-container {
+  width: 100px;
+  height: 100px;
+}
+
+lib-ngx-image-zoom {
+  width: 10%;
+  height: 10%;
+  background-size: cover;
+}
+
+.ccc {
+  display: flex;
+  justify-content: start;
+}
+
+::ng-deep .ngxImageZoomContainer > img {
+  height: 400px !important;
+  width: 400px !important;
+  size: cover;
+}
+
+.gray-bg {
+  margin-top: 5%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.zoom-container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.details {
+  background: whitesmoke;
+  margin-left: 5%;
+  width: 35%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  padding-left: 2%;
+  padding-right: 2%;
+}
+.details hr {
+  width: 100%;
+  margin-left: -5%;
+  margin-right: -15%;
+}

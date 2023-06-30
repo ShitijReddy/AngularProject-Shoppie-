@@ -60,20 +60,23 @@
     <div class="container products-cont" [ngClass]="{'move-up': !showNavbar}">
         <div class="row">
             <ng-container *ngFor= "let item of productList">
-                <div  class="card col-md-3" *ngIf="item.quant > 0" (mouseenter)="hoveredItem = item.id" (mouseleave)="hoveredItem = null">
+                <div  class="card col-md-3" *ngIf="item.quant > 0"  (mouseenter)="hoveredItem = item.id" (mouseleave)="hoveredItem = null">
                     <!-- On hover image change -->
                     <div class="product-image"
                     [style.background-image]="hoverImage === item.id ? 'url(' + item.sideImg+ ')' : 'url(' + item.image + ')'"
                     (mouseenter)="hoverImage = item.id"
                     (mouseleave)="hoverImage = null">
                     </div>
+                    <div style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch; align-items: center; justify-content: center;">
+                        {{item.prodName}}
+                    </div>
 
-                    <mat-accordion style="background-color: white;">
+                    <!-- <mat-accordion style="background-color: white;">
                         <mat-expansion-panel>
                             <mat-expansion-panel-header>
                                 <mat-panel-title>
                                     
-                                    <div style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch; align-items: center; justify-content: center;">{{item.prodName}}</div>
+                                    
                                     
                                 </mat-panel-title>
                                 <mat-panel-description>
@@ -93,8 +96,12 @@
         
                         </mat-expansion-panel>
                         
-                    </mat-accordion>
-                    <button class="btn btn-primary add-to-cart" style="margin-top: 22px;" *ngIf="hoveredItem === item.id && isUserCustomer()" (click)="addtocart(item)">Add to Cart</button>
+                    </mat-accordion> -->
+                    <div>
+                        <button mat-raised-button style="margin-top: 22px;"  (click)="openProductDetails(item)">View More</button>
+                        <button class="btn btn-primary add-to-cart" style="margin-top: 22px;" *ngIf="hoveredItem === item.id" (click)="addtocart(item)">Add to Cart</button>
+                        
+                    </div>
                     <!-- <button  class="btn btn-primary" style="margin-top: 10px;" (click)="addtocart(item)">Add to Cart</button> -->
                 </div>
             </ng-container>

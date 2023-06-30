@@ -159,9 +159,21 @@
 .add-to-cart {
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  margin-left: 10px;
   /* "to left" / "to right" - affects initial color */
   background: linear-gradient(to left, blue 50%, rgb(208, 20, 233) 50%) right;
+  border: none;
+  border-radius: 50px;
+  background-size: 200%;
+  transition: 0.4s ease-out;
+}
+
+.view-more {
+  margin-left: auto;
+  margin-right: auto;
+  margin-left: 0px;
+  /* "to left" / "to right" - affects initial color */
+  background-color: rgb(147, 9, 211);
   border: none;
   border-radius: 50px;
   background-size: 200%;

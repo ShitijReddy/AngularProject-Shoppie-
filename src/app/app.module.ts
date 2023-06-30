@@ -32,13 +32,23 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
+// import { MatDialog } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MyProductsComponent } from './component/my-products/my-products.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { HomeComponent } from './component/home/home.component';
 
-import { CarouselModule } from 'ngx-bootstrap/carousel';
+// import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { ProductDetailsComponent } from './component/product-details/product-details.component';
+
+import { NgxImageZoomModule } from 'ngx-image-zoom';
+
+import { GroupByPipe } from './service/group-by.pipe';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgxImgZoomModule } from 'ngx-img-zoom';
+// import { ImageZoomModule } from 'ngx-image-zoom';
 
 @NgModule({
   declarations: [
@@ -54,6 +64,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     ProductReviewComponent,
     MyProductsComponent,
     HomeComponent,
+    ProductDetailsComponent,
+    GroupByPipe
     // SignupComponent
   ],
   imports: [
@@ -75,22 +87,14 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     MatTableModule,
     MatCheckboxModule,
     NgSelectModule,
-    CarouselModule.forRoot(),
-    RouterModule.forRoot([
-
-  {path:'', redirectTo:'products', pathMatch:'full'},
-  {path:'products', component: ProductComponent,
-  canActivate: [AuthGuard]},
-  {
-    path:'cart', 
-    component:CartComponent
-  },
-  {path: 'signup', component: SignupComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'checkout', component: CheckoutComponent},
-  {path: 'my-orders', component: MyOrdersComponent}
-    ]),
-    BrowserAnimationsModule
+    MatDialogModule,
+    NgxImageZoomModule,
+    // NgxImgZoomModule,
+    BrowserAnimationsModule,
+    // groupBy
+  ],
+  exports:[
+    GroupByPipe
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,43 +1,135 @@
-<strong>
-  <p>Rating:</p>
-  <div class="star-rating" [ngClass]="{'empty-star-rating': calculateAverageRating() < 1}"></div>
-  <div class="star-rating" [ngClass]="{'empty-star-rating': calculateAverageRating() < 2}"></div>
-  <div class="star-rating" [ngClass]="{'empty-star-rating': calculateAverageRating() < 3}"></div>
-  <div class="star-rating" [ngClass]="{'empty-star-rating': calculateAverageRating() < 4}"></div>
-  <div class="star-rating" [ngClass]="{'empty-star-rating': calculateAverageRating() < 5}"></div>
-  <span style="font-size: 1.2rem;"> ({{  calculateAverageRating() }})</span>
-</strong>
-
-<strong><p>Reviews: {{ totalReviews() }}</p></strong>
-
-<button class="btn btn-secondary" *ngIf="!showReviews" (click)="showReviews = true">Display Reviews</button>
-<button class="btn btn-secondary" *ngIf="showReviews" (click)="showReviews = false">Hide Reviews</button>
-
-<div *ngIf="showReviews" class="review-section">
-    <h3>Reviews</h3>
-    <div *ngFor="let review of reviews" class="review-item">
-    <p>Rating: {{ review.rating }}</p>
-    <p>Content: {{ review.content }}</p>
-    <p>User: {{ review.userId }}</p>
-    <p>Created At: {{ review.createdAt }}</p>
+<div class="mainnn" style="margin-left: 2%;" >
+  <div class="mainnn-1">
+    <strong>
+      <p style="font-size: large;">Ratings & Reviews</p>
+      <div
+        class="star-rating"
+        [ngClass]="{ 'empty-star-rating': calculateAverageRating() < 1 }"
+      ></div>
+      <div
+        class="star-rating"
+        [ngClass]="{ 'empty-star-rating': calculateAverageRating() < 2 }"
+      ></div>
+      <div
+        class="star-rating"
+        [ngClass]="{ 'empty-star-rating': calculateAverageRating() < 3 }"
+      ></div>
+      <div
+        class="star-rating"
+        [ngClass]="{ 'empty-star-rating': calculateAverageRating() < 4 }"
+      ></div>
+      <div
+        class="star-rating"
+        [ngClass]="{ 'empty-star-rating': calculateAverageRating() < 5 }"
+      ></div>
+      <span style="font-size: 1.2rem"> ({{ totalReviews() }})</span>
+    </strong>
+    
+    <!-- <strong><p>Reviews: {{ totalReviews() }}</p></strong> -->
+    <div style="margin-top: 2%;">
+      <div class="main-bar">
+        5 
+        <span style="font-size: 10px;"><i class="fa-solid fa-star"></i></span>
+        <div class="bar">
+          <div class="bar-fill" [style.width]="getBarFillWidth(5)"></div>
+        </div>
+        <span style="margin-left: 1%;"> {{ this.getReviewCountByRating(5) }}</span>
+      </div>
+      
+      
+      <div class="main-bar">
+        4 
+        <span style="font-size: 10px; "><i class="fa-solid fa-star"></i></span> 
+        <div class="bar">
+          <div class="bar-fill" [style.width]="getBarFillWidth(4)"></div>
+        </div>
+       <span style="margin-left: 1%;"> {{ this.getReviewCountByRating(4) }}</span>
+      </div>
+      
+      
+      <div class="main-bar">
+        3
+        <span style="font-size: 10px;"><i class="fa-solid fa-star"></i></span>
+        <div class="bar">
+          <div class="bar-fill" [style.width]="getBarFillWidth(3)"></div>
+        </div>
+        <span style="margin-left: 1%;"> {{ this.getReviewCountByRating(3) }}</span>
+      </div>
+      
+      
+      <div class="main-bar">
+        2 
+        <span style="font-size: 10px;"><i class="fa-solid fa-star"></i></span> 
+        <div class="bar">
+          <div class="bar-fill" [style.width]="getBarFillWidth(2)"></div>
+        </div>
+        <span style="margin-left: 1%;"> {{ this.getReviewCountByRating(2) }}</span>
+      </div>
+      
+      
+      <div class="main-bar">
+        1 
+        <span style="font-size: 10px;"><i class="fa-solid fa-star"></i></span>
+        <div class="bar">
+          <div class="bar-fill" [style.width]="getBarFillWidth(1)"></div>
+        </div>
+        <span style="margin-left: 1%;"> {{ this.getReviewCountByRating(1) }}</span>
+      </div>
+      
+      
     </div>
-    <button class="btn btn-primary" (click)="showReviewForm = !showReviewForm">Add a Review</button>
-</div>
-
-
-<div *ngIf="showReviewForm" class="review-form">
-
-    <form [formGroup]="reviewForm" (ngSubmit)="submitReview()" class="form-container">
-  <label for="rating">Rating:</label>
-  <!-- <mat-slider
-    thumbLabel
-    tickInterval="1"
-    min="1"
-    max="5"
-    formControlName="rating"
-    class="form-input"
-  ></mat-slider> -->  
-  <mat-slider
+  </div>
+  <div class="mainnn-2">
+  
+  <button
+  class="btn btn-secondary"
+  *ngIf="!showReviews"
+  (click)="showReviews = true"
+  >
+  Display Reviews
+  </button>
+  <button
+  class="btn btn-secondary"
+  *ngIf="showReviews"
+  (click)="showReviews = false"
+  >
+  Hide Reviews
+  </button>
+  
+  <div *ngIf="showReviews" class="review-section">
+  <h3>Reviews</h3>
+  
+  
+  
+  <div class="rev">
+    <div *ngFor="let review of reviews" class="review-item">
+      <div class="points">
+        <span>{{ review.rating }}</span>
+        <span style="font-size: 10px; margin-left: 10%;"><i class="fa-solid fa-star"></i></span>
+        <!-- <span class="point-star"></span> -->
+      </div>
+      <p>Comment: <span style="text-transform: capitalize; font-weight: bold;">{{ review.comment }}</span></p>
+      <p style="text-transform: capitalize; font-weight: bold; color: rgb(107, 103, 103);">@{{ review.author }}</p>
+    </div>
+  </div>
+  <button class="btn btn-primary" (click)="showReviewForm = !showReviewForm">
+    Add a Review
+  </button>
+  </div>
+  
+  
+  
+  <div *ngIf="showReviewForm" class="review-form">
+  
+  
+  <form [formGroup]="reviewForm" (ngSubmit)="submitReview()" class="review-form" enctype="multipart/form-data">
+    <div class="form-row">
+      <!-- <label for="author">Author:</label> -->
+      <!-- <input type="text" id="author" formControlName="author" required /> -->
+    </div>
+    <div class="form-row">
+      <label for="rating">Rating:</label>
+      <mat-slider
         min="1"
         max="5"
         step="1"
@@ -46,34 +138,22 @@
       >
         <input formControlName="rating" #slideBar matSliderThumb />
       </mat-slider>
-  <label for="content">Review:</label>
-  <textarea formControlName="content" class="form-input"></textarea>
-
-  <button type="submit" [disabled]="reviewForm.invalid" class="submit-button">Submit</button>
-</form>
-
+      
+      <!-- <input type="number" id="rating" formControlName="rating" required /> -->
+    </div>
+  
+    <div class="form-row">
+      <label for="comment">Comment:</label>
+      <textarea id="comment" formControlName="comment" required></textarea>
+    </div>
+  
+    <div class="form-row submit-row">
+      <button type="submit" class="submit-button">Submit Review</button>
+    </div>
+  </form>
+  
+  </div>
+  
+  
+  </div>
 </div>
-<!-- Inside the review component template -->
-
-<div class="filter-section">
-  <h4>Sorting Options:</h4>
-  <select [(ngModel)]="selectedSortingOption" (change)="sortReviews()">
-    <option value="latest">Latest</option>
-    <option value="highest-rated">Highest Rated</option>
-    <option value="most-helpful">Most Helpful</option>
-  </select>
-</div>
-
-<div class="filter-section">
-  <h4>Rating Filter:</h4>
-  <select [(ngModel)]="selectedRatingFilter" (change)="filterReviews()">
-    <option value="">All Ratings</option>
-    <option value="1">1 Star</option>
-    <option value="2">2 Stars</option>
-    <option value="3">3 Stars</option>
-    <option value="4">4 Stars</option>
-    <option value="5">5 Stars</option>
-  </select>
-</div>
-
-

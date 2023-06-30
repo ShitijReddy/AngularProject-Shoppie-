@@ -10,6 +10,9 @@ import { ChartDataset, ChartType } from 'chart.js';
 import { MatButtonModule } from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 
+import { MatDialog } from '@angular/material/dialog';
+import { ProductDetailsComponent } from '../product-details/product-details.component';
+
 import { Review } from 'src/datainterface';
 import { product } from 'src/datainterface';
 // import { Component } from '@angular/core';
@@ -48,8 +51,8 @@ export class ProductComponent implements OnInit{
   averageRating!: number;
   reviews: Review[] =[];
   newReview: Review = {
-    productId: '', userId: '', rating: 0, content: '', createdAt: new Date(),
-    id: this.generateUniqueId()
+    productTitle: '', author: '', rating: 0, comment: '',
+    tempId: this.generateUniqueId()
   };
 
 
@@ -78,7 +81,8 @@ toggleNavbar() {
 
   constructor(private shared: ApiService, private cartService: CartService,
      private prodApi: ProductApiService, private http: HttpClient,
-     private reviewService: ReviewService, private categoryService: CategoryService
+     private reviewService: ReviewService, private categoryService: CategoryService,
+     private dialog: MatDialog
     ){
       this.productList = this.filterByCategory("All Items");
       this.filteredProductsByTag = this.filterByCategory("All Items");
@@ -94,7 +98,7 @@ toggleNavbar() {
       this.calculateAverageRating();
     });
 
-    this.newReview.id = this.unqid;
+    // this.newReview.id = this.unqid;
     this.unqid += 1;
 
     this.categoryService.getCategory().subscribe(category => {
@@ -136,6 +140,14 @@ toggleNavbar() {
     
   }
 
+  openProductDetails(item: any): void {
+    this.dialog.open(ProductDetailsComponent, {
+      data: item,
+      height: '500px',
+      width: '1000px',
+      panelClass: 'product-details-dialog'
+    });
+  }
 
   addtocart(item: any) {
     // Calling the service
@@ -189,31 +201,31 @@ toggleNavbar() {
     }
   }
   
-  addReview() {
-    if (this.selectedProduct) {
-      const newReview: Review = {
-        rating: this.newReview.rating,
-        content: this.newReview.content,
-        userId: "3535",
-        productId: this.selectedProduct.id,
-        id: 0,
-        createdAt: new Date
-      };
+  // addReview() {
+  //   if (this.selectedProduct) {
+  //     const newReview: Review = {
+  //       rating: this.newReview.rating,
+  //       content: this.newReview.content,
+  //       userId: "3535",
+  //       productId: this.selectedProduct.id,
+  //       id: 0,
+  //       createdAt: new Date
+  //     };
 
-      this.http.post('http://localhost:3000/reviews', newReview)
-        .subscribe(
-          response => {
-            console.log('Review created successfully:', response);
-            this.reviews.push(newReview);
-            // Perform any necessary actions after successful creation
-          },
-          error => {
-            console.error('Failed to create review:', error);
-            // Handle error if needed
-          }
-        );
-    }
-  }
+  //     this.http.post('http://localhost:3000/reviews', newReview)
+  //       .subscribe(
+  //         response => {
+  //           console.log('Review created successfully:', response);
+  //           this.reviews.push(newReview);
+  //           // Perform any necessary actions after successful creation
+  //         },
+  //         error => {
+  //           console.error('Failed to create review:', error);
+  //           // Handle error if needed
+  //         }
+  //       );
+  //   }
+  // }
 
   selectProduct(product: any) {
     this.selectedProduct = product;
@@ -235,33 +247,33 @@ toggleNavbar() {
   }
 
 
-    submitReview(productId: string) {
-      const newReview: Review = {
-        rating: this.newReview.rating,
-        content: this.newReview.content,
-        userId: "555",
-        productId: productId,
-        id: 0,
-        createdAt: new Date
-      };
+    // submitReview(productId: string) {
+    //   const newReview: Review = {
+    //     rating: this.newReview.rating,
+    //     content: this.newReview.content,
+    //     userId: "555",
+    //     productId: productId,
+    //     id: 0,
+    //     createdAt: new Date
+    //   };
   
-      // Generate unique ID for the review
-      newReview.id = this.generateUniqueId();
+    //   // Generate unique ID for the review
+    //   newReview.id = this.generateUniqueId();
   
-      // Send the HTTP request to create the review
-      this.http.post('http://localhost:3000/reviews', newReview)
-        .subscribe(
-          response => {
-            console.log('Review created successfully:', response);
-            this.reviews.push(newReview); // add the review to the reviews array
-            // Perform any necessary actions after successful creation
-          },
-          error => {
-            console.error('Failed to create review:', error);
-            // Handle error if needed
-          }
-        );
-    }
+    //   // Send the HTTP request to create the review
+    //   this.http.post('http://localhost:3000/reviews', newReview)
+    //     .subscribe(
+    //       response => {
+    //         console.log('Review created successfully:', response);
+    //         this.reviews.push(newReview); // add the review to the reviews array
+    //         // Perform any necessary actions after successful creation
+    //       },
+    //       error => {
+    //         console.error('Failed to create review:', error);
+    //         // Handle error if needed
+    //       }
+    //     );
+    // }
 
     calculateAverageRating() {
       const sum = this.reviews.reduce((total, review) => total + review.rating, 0);

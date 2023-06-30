@@ -1,0 +1,98 @@
+<div class="product-details-dialog">
+    <i (click)="closeDialog()"  class="fa-solid fa-xmark fa-xl close"></i>
+<!-- <h1 style="margin-left: 5%; font-size: xx-large; color: rgb(89, 89, 94);">{{ data.prodName }}</h1> -->
+    <div class="main">
+        
+        <!-- <ngx-image-zoom [zoomImage]="'path/to/zoom-image.jpg'" [image]="'path/to/original-image.jpg'"></ngx-image-zoom> -->
+
+
+        <!-- <div class="sub sub-1" [style.background-image]="'url(' + selectedImage + ')'" ></div> -->
+        
+        <!-- <div class="image-zoom-container"> -->
+            <!-- <div class="ccc"> -->
+                <div class="ccc">
+                    <div class="images">
+                        <img (error)="handleImageError($event)" class="gray-bg" *ngFor="let image of [data.image, data.sideImg]" 
+                        [src]="image" alt="" (click)="selectImage(image)" (load)="imageLoaded()" >
+                    </div>
+                    <div class="zoom-container">
+                        <lib-ngx-image-zoom #zoomComponent
+                            [thumbImage]="getSelectedImage()"
+                            [fullImage]="getSelectedImage()"
+                            [magnification]="1.5"
+                            [enableLens]="true"
+                            [lensWidth]="150"
+                            [lensHeight]="150"
+                            [circularLens]="true"
+                            [enableScrollZoom]="true"
+                            class="zzz"
+                        ></lib-ngx-image-zoom>
+                    </div>
+
+                    <div class="details">
+                        <div style="color: rgb(22, 21, 21); text-transform: capitalize; font-size: 190%; margin-top: 10px; margin-bottom:6px;"> <strong> {{ data.prodName }}</strong></div>
+                        
+                        <strong style=" color: rgb(90, 95, 95); font-size: small; text-transform: lowercase;" > {{ data.prodDesc }}</strong>
+                        <br>
+                        <hr style="height: 10px; color: rgb(190, 194, 193);">
+                        <strong style="color: rgb(27, 26, 26); font-size: large; margin-bottom:6px;">&#8377;{{ data.price }} or 99.99/month</strong>
+                        <br>
+                        <div><strong style=" color: rgb(90, 95, 95); font-size: small; text-transform: lowercase;" > suggested payments with 6 months special financing</strong></div>
+                        <hr>
+                        <div style="font-size: small;" > Only <span style="color: chocolate; font-weight: bold; font-size: medium;">{{ data.quant }}  items</span> Left!!</div>
+                        
+                        <div>Don't miss it</div>
+                        <br>
+                        
+                        <span style="font-size: large;">Sold by:<strong style="color: rgb(126, 5, 224); text-transform: capitalize;"> {{ data.vendorName }}</strong></span>
+                        <br>
+                        <!-- <i class="fa-regular fa-truck" style="font-size: xx-large;"></i> -->
+                        <!-- <i class="fa-light fa-truck"> </i>Free Delivery -->
+                        <div style="margin-bottom: 5%; margin-top: 5%; box-shadow: 0 0 2px rgba(0, 0, 0, 0.5); padding: 2%;">
+                            <i class="fas fa-shipping-fast" style="margin-right:2%; color: rgb(27, 27, 27); font-size: medium;"></i>
+                            <span>Free Delivery</span>
+                            <div style="font-size: smaller;">No delivery costs for upto 10 kms.</div>
+                        </div>
+                        <div  style="margin-bottom: 5%; box-shadow: 0 0 2px rgba(0, 0, 0, 0.5); padding: 2%;">
+                            <i class="fas fa-shipping-fast fa-flip-horizontal" style="margin-right:2%; color: rgb(27, 27, 27); font-size: medium;"></i>
+                            <span>Return Delivery</span>
+                            <div style="font-size: smaller;">Free 30 days Delivery Returns.</div>
+                        </div>
+                    </div>
+
+                </div>
+                    <!-- <div class="sub-2-1">
+                        
+                    </div>                                 -->
+                    <div >
+                        <app-product-review [productId]="data.id"></app-product-review>
+                    </div>
+                
+            <!-- </div> -->
+            <!-- <div class="sub-11">
+                <span>Price:</span><h1> <strong style="color: rgb(0, 0, 0);">&#8377;{{ data.price }}</strong></h1>
+                <span>Quantity:</span><h2><strong style="color: rgb(0, 0, 0);"> {{ data.quant }}</strong></h2>
+                
+                <span>Seller:</span><h2>  <strong style="color: rgb(12, 90, 235);">{{ data.vendorName }}</strong></h2>
+                <span>Description:</span><h2>  <strong style="color: rgb(58, 59, 59);">{{ data.prodDesc }}</strong></h2>
+                
+                
+            </div> -->
+        <!-- </div> -->
+
+    </div>
+
+
+<!-- <lib-ngx-image-zoom
+    [thumbImage]="myThumbnail"
+    [magnification]="2.5"
+    [enableScrollZoom]="true"
+    [enableLens]="true"
+    [lensWidth]="300"
+    [lensHeight]="300"
+    [circularLens]="true"
+></lib-ngx-image-zoom> -->
+
+
+
+</div>

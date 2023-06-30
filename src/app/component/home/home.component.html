@@ -3,8 +3,21 @@
     <!-- <h2 style="margin-bottom: -50px; z-index: 9;">SHOP OUR COLLECTIONS</h2> -->
     <!-- <h3 style=" z-index: 999;">Fashion</h3> -->
     <div class="cont-1">
-        <img class="top-img" style="width: 100%;" src="https://cdn.shopify.com/s/files/1/0289/3692/files/Header_Dick_Moby_1920x.jpg?v=1683182766" alt="">
-        <button class="btn btn-primary shop-more" (click)="redirectToProductsAndFilter('Fashion')">Shop Fashion Wear</button>
+        <!-- <img class="top-img" style="width: 100%; height: 700px;" src="https://cdn.shopify.com/s/files/1/0249/4155/9894/files/Masthead-Banners-Web-09.jpg?v=1679894882" alt=""> -->
+        <div class="cont-1-top">
+          <div class="cont-1-top-left">
+
+          </div>
+          <div class="cont-1-top-right">
+            <div class="text-overlay">
+              <p>New Arrivals</p>
+              <h1>Women's Sneakers</h1>
+              <button mat-raised-button >Shop Now</button>
+            </div>
+          </div>
+
+        </div>
+        <!-- <button mat-raised-button color="primary" class="shop-more" (click)="redirectToProductsAndFilter('Fashion')">Shop Fashion Wear</button> -->
         <!-- <div class="first-div">
             
             
@@ -21,7 +34,7 @@
           
         
         
-        <div style="margin-top: 40px;"><button class="btn btn-primary" (click)="redirectToProductsAndFilter('All Items')">Explore All Products</button></div>
+        <div style="margin-top: 40px;"><button mat-raised-button  (click)="redirectToProductsAndFilter('All Items')">Explore All Products</button></div>
     </div>
     
     
@@ -36,9 +49,9 @@
           <img src="path_to_image3" alt="Image 3">
         </div>
       </div> -->
-    <div class="container-2" style="background-color: rgb(248, 228, 202);">
+    <div class="container-2" style="background-color: rgb(233, 227, 227)">
        <div class="div-1">
-            <img src="https://thumbs.dreamstime.com/b/many-used-modern-electronic-gadgets-use-white-floor-reuse-recycle-concept-top-view-164230611.jpg" alt="">
+            <img src="https://img.freepik.com/premium-photo/gamer-workspace_127657-18683.jpg?size=626&ext=jpg&ga=GA1.1.1256424137.1687945367&semt=sph" alt="">
        </div>
         <div class="div-2">
             <h2>Explore Our Extensive Collection of Electronic Gadgets</h2>
@@ -46,18 +59,50 @@
             <p>We have an extensive collection of various electronic gadgets that cater to different needs and preferences. Our range includes top-of-the-line smartphones such as the iPhone 12 Pro, Samsung Galaxy S21 Ultra, Google Pixel 5, OnePlus 9 Pro, and Xiaomi Mi 11, ensuring you stay connected in style.</p>
             <p>At our store, we are committed to providing you with the latest and greatest electronic gadgets that combine innovation, functionality, and style. Discover the perfect devices to suit your lifestyle and elevate your tech game.</p>
             <br><br>
-            <button style="background-color: rgb(155, 4, 255); color: white; border: none;" class="btn dual" (click)="redirectToProductsAndFilter('Electronics')">Explore Gadgets</button>
+            <button mat-raised-button color="secondary" style="background-color: whitesmoke;" (click)="redirectToProductsAndFilter('Electronics')">Explore Gadgets</button>
         </div>
     </div>
 
     <div class="container-3">
         <div class="div1">
-          <button class="button" (click)="redirectToProductsAndFilter('Sunglasses')">Explore Sunglasses</button>
+          <!-- <button class="button" (click)="redirectToProductsAndFilter('Sunglasses')">Explore Sunglasses</button> -->
+          <button mat-raised-button color="warn" class="bb" (click)="redirectToProductsAndFilter('Sunglasses')">Shop Sunglasses</button>
+        
         </div>
         <div class="div2">
-          <button class="button" (click)="redirectToProductsAndFilter('Sunglasses')">Explore Sunglasses</button>
+          <button mat-raised-button color="primary" class="bb" (click)="redirectToProductsAndFilter('Sunglasses')">Explore Sunglasses</button>
         </div>
     </div>
       
   </div>
+
+  <!-- <ngb-carousel *ngIf="images">
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="images[0]" alt="Random first slide" />
+      </div>
+      <div class="carousel-caption">
+        <h3>First slide label</h3>
+        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="images[1]" alt="Random second slide" />
+      </div>
+      <div class="carousel-caption">
+        <h3>Second slide label</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="images[2]" alt="Random third slide" />
+      </div>
+      <div class="carousel-caption">
+        <h3>Third slide label</h3>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      </div>
+    </ng-template>
+  </ngb-carousel> -->
   

@@ -31,25 +31,28 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'myapp.apps.MyappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp.apps.MyappConfig',
+    'rest_framework',
     'corsheaders',
 ]
 
 MIDDLEWARE = [
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware', 
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware', 
+    # 'myapp.middleware.CustomUserMiddleware',
 ]
 
 ROOT_URLCONF = 'shoppie.urls'
@@ -68,6 +71,13 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+# AUTH_USER_MODEL = 'myapp.ShoppieUser'
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:4200',
+    #  '*',
 ]
 
 WSGI_APPLICATION = 'shoppie.wsgi.application'
@@ -122,9 +132,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:4200',
-]
+
+# CORS_ALLOW_HEADERS = [
+#     'x-user-id',
+#     # Add any other headers that should be allowed
+# ]
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -132,3 +144,25 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:4200',
     'http://example.com',
 ]
+# settings.py
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+SESSION_COOKIE_SECURE = False
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'rest_framework.authentication.TokenAuthentication',
+#         'rest_framework.authentication.BasicAuthentication',
+#         'rest_framework.authentication.SessionAuthentication',
+#         'rest_framework_simplejwt.authentication.JWTAuthentication',
+#     ),
+#     'DEFAULT_PERMISSION_CLASSES': (
+#         'rest_framework.permissions.IsAuthenticated',
+#     ),
+# }
